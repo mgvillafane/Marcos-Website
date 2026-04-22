@@ -1,13 +1,11 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
+  "devCommand": "vite",
   "framework": "vite",
   "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/index.html",
-      "permanent": false
-    }
+  "installCommand": "npm install",
+  "env": [
+    "NODE_ENV=production"
   ]
 }
