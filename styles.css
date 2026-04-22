@@ -112,6 +112,21 @@ h2{color:#e8eef5;margin-bottom:16px}
   padding:0;
 }
 
+.hero > div:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: flex;
+}
+
+.hero > div:first-child > div {
+  width: 100%;
+  height: 100%;
+}
+
 .hero-bg{
   position:absolute;
   top:0;
@@ -161,6 +176,12 @@ h2{color:#e8eef5;margin-bottom:16px}
   z-index:10;
   text-align:center;
   animation:fadeInUp 1s ease-out;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  pointer-events:auto;
 }
 
 .hero-title{

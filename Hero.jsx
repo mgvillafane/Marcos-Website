@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import PremiumBackground from './PremiumBackground.jsx'
+import ChromaBG from './ChromaBG.jsx'
 
 export default function Hero(){
   const containerRef = useRef(null)
@@ -21,28 +21,7 @@ export default function Hero(){
 
   return (
     <section className="hero" ref={containerRef}>
-      <PremiumBackground />
-      
-      <div className="hero-bg">
-        <div 
-          className="hero-light hero-light-1"
-          style={{
-            transform: `translate(${mousePos.x * 30}px, ${mousePos.y * 30}px)`
-          }}
-        ></div>
-        <div 
-          className="hero-light hero-light-2"
-          style={{
-            transform: `translate(${mousePos.x * -25}px, ${mousePos.y * -25}px)`
-          }}
-        ></div>
-        <div 
-          className="hero-light hero-light-3"
-          style={{
-            transform: `translate(${mousePos.x * 20}px, ${mousePos.y * -30}px)`
-          }}
-        ></div>
-      </div>
+      <ChromaBG style="Liquid" />
       
       <div className="hero-content">
         <h1 className="hero-title">[Tu nombre]</h1>
