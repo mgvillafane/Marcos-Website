@@ -7,11 +7,11 @@ export default function Experience(){
     {
       company: 'Tech Innovations Co',
       role: 'Senior Frontend Developer',
-      dates: '2022 - Presente',
+      dates: '2022 - Present',
       tasks: [
-        'Desarrollé aplicaciones React escalables para 5+ clientes',
-        'Optimicé performance reduciendo load time en 40%',
-        'Lideré equipo de 3 desarrolladores junior'
+        'Developed scalable React applications for 5+ clients',
+        'Optimized performance reducing load time by 40%',
+        'Led a team of 3 junior developers'
       ]
     },
     {
@@ -19,9 +19,9 @@ export default function Experience(){
       role: 'Full Stack Developer',
       dates: '2020 - 2022',
       tasks: [
-        'Construcción de APIs REST con Node.js y Express',
-        'Diseño de bases de datos en PostgreSQL',
-        'Implementación de autenticación JWT'
+        'Built REST APIs with Node.js and Express',
+        'Designed databases in PostgreSQL',
+        'Implemented JWT authentication'
       ]
     },
     {
@@ -29,9 +29,9 @@ export default function Experience(){
       role: 'Junior Developer',
       dates: '2019 - 2020',
       tasks: [
-        'Primeros pasos en desarrollo web full stack',
-        'Aprendizaje de buenas prácticas y clean code',
-        'Contribuciones a proyectos open source'
+        'First steps in full stack web development',
+        'Learned best practices and clean code',
+        'Contributed to open source projects'
       ]
     }
   ]

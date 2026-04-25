@@ -185,13 +185,27 @@ h2{color:#e8eef5;margin-bottom:16px}
 }
 
 .hero-title{
-  font-size:4rem;
+  font-size:2.8rem;
   font-weight:700;
   margin:0;
   color:#e8eef5;
   font-family:Poppins, Inter;
   letter-spacing:-2px;
   text-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.typewriter-cursor{
+  display:inline-block;
+  width:6px;
+  height:2.8rem;
+  background-color:#e8eef5;
+  margin-left:4px;
+  animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+  0%, 49%{opacity:1}
+  50%, 100%{opacity:0}
 }
 
 .hero-subtitle{
@@ -245,15 +259,24 @@ h2{color:#e8eef5;margin-bottom:16px}
 .projects-grid{display:grid;grid-template-columns:1fr;gap:16px}
 .project-card{display:flex;flex-direction:column;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;border:1px solid rgba(255,255,255,0.04)}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(74,157,111,0.15)}
-.project-image-wrapper{width:100%;height:200px;overflow:hidden;background:linear-gradient(135deg, rgba(74,157,111,0.1), rgba(95,168,143,0.05))}
+.project-image-wrapper{width:100%;height:120px;overflow:hidden;background:linear-gradient(135deg, rgba(74,157,111,0.1), rgba(95,168,143,0.05))}
 .project-image{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;will-change:transform}
 .project-card:hover .project-image{transform:scale(1.05)}
-.project-content{padding:14px;flex:1;display:flex;flex-direction:column}
-.project-card h3{margin:.2rem 0;color:#e8eef5}
-.desc{color:var(--muted);flex:1}
-.tech{font-size:.9rem;color:var(--muted);margin-top:8px}
+.project-content{padding:10px;flex:1;display:flex;flex-direction:column}
+.project-card h3{margin:0 0 6px 0;color:#e8eef5;font-size:0.95rem}
+.desc{color:var(--muted);flex:1;font-size:0.85rem;margin:4px 0}
+.tech{font-size:.75rem;color:var(--muted);margin-top:4px}
 
 .skills-grid{display:grid;grid-template-columns:1fr;gap:12px}
+
+/* Awards Section */
+.awards-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.award-item{padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(74,157,111,0.2);transition:all .3s ease}
+.award-item:hover{background:linear-gradient(180deg, rgba(74,157,111,0.08), rgba(255,255,255,0.01));transform:translateY(-3px)}
+.award-icon{font-size:2rem;margin-bottom:8px}
+.award-item h3{margin:0 0 4px 0;color:#e8eef5;font-size:1rem}
+.award-org{margin:0 0 8px 0;color:var(--accent);font-size:.85rem;font-weight:500}
+.award-desc{margin:0;color:var(--muted);font-size:.9rem;line-height:1.4}
 
 /* Experience Accordion */
 .experience-list{display:flex;flex-direction:column;gap:12px}
@@ -294,11 +317,13 @@ h2{color:#e8eef5;margin-bottom:16px}
     width:300px;
     height:300px;
   }
-  .hero-title{font-size:5.5rem}
+  .hero-title{font-size:4rem}
+  .typewriter-cursor{height:4rem}
   .hero-subtitle{font-size:1.5rem}
-  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .projects-grid{grid-template-columns:repeat(3,1fr)}
+  .awards-grid{grid-template-columns:repeat(2,1fr)}
   .skills-grid{grid-template-columns:repeat(4,1fr)}
-  .project-image-wrapper{height:250px}
+  .project-image-wrapper{height:150px}
 }
 
 @media(max-width:760px){

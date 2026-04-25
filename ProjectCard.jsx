@@ -9,8 +9,8 @@ export default function ProjectCard({title, desc, tech, url, image}){
       <div className="project-content">
         <h3>{title}</h3>
         <p className="desc">{desc}</p>
-        <p className="tech"><strong>Tecnologías:</strong> {tech}</p>
-        <a href={url} target="_blank" rel="noopener noreferrer" className="btn">Ver proyecto</a>
+        <p className="tech"><strong>Technologies:</strong> {tech}</p>
+        <a href={url} target="_blank" rel="noopener noreferrer" className="btn">View project</a>
       </div>
     </article>
   )
