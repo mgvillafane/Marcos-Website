@@ -260,7 +260,7 @@ h2{color:#e8eef5;margin-bottom:16px}
 .project-card{display:flex;flex-direction:column;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;border:1px solid rgba(255,255,255,0.04)}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(74,157,111,0.15)}
 .project-image-wrapper{width:100%;height:120px;overflow:hidden;background:linear-gradient(135deg, rgba(74,157,111,0.1), rgba(95,168,143,0.05))}
-.project-image{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;will-change:transform}
+.project-image{width:100%;height:100%;object-fit:contain;transition:transform .4s ease;will-change:transform}
 .project-card:hover .project-image{transform:scale(1.05)}
 .project-content{padding:10px;flex:1;display:flex;flex-direction:column}
 .project-card h3{margin:0 0 6px 0;color:#e8eef5;font-size:0.95rem}
@@ -357,3 +357,186 @@ html{scroll-behavior:smooth}
 /* Links accent hover */
 a{color:var(--accent)}
 a:hover{color:var(--accent-light)}
+
+/* Project Detail Page Styles */
+.project-detail {
+  min-height: 100vh;
+  background: fixed linear-gradient(135deg, var(--bg) 0%, #1a1f2a 50%, #13161b 100%);
+}
+
+.project-hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 20, 25, 0.95) 100%);
+}
+
+.hero-overlay h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.5rem;
+  color: #e8eef5;
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+}
+
+.hero-tech {
+  color: var(--accent);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  color: #0f1419;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 157, 111, 0.3);
+}
+
+.model-viewer-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(74, 157, 111, 0.2);
+  background: linear-gradient(135deg, rgba(74, 157, 111, 0.05), rgba(95, 168, 143, 0.02));
+  margin: 24px 0;
+}
+
+.sections-wrapper {
+  padding: 40px 20px;
+}
+
+.max-width-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail-section {
+  margin-bottom: 48px;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.detail-section h2 {
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid rgba(74, 157, 111, 0.2);
+  padding-bottom: 12px;
+}
+
+.detail-section p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.detail-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.detail-section li {
+  color: var(--muted);
+  padding: 10px 0 10px 28px;
+  position: relative;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.detail-section li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media(max-width: 760px) {
+  .project-hero {
+    height: 250px;
+  }
+
+  .hero-overlay {
+    padding: 24px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .sections-wrapper {
+    padding: 24px 16px;
+  }
+
+  .detail-section {
+    margin-bottom: 32px;
+  }
+
+  .detail-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .detail-section p {
+    font-size: 0.95rem;
+  }
+
+  .detail-section li {
+    font-size: 0.95rem;
+    padding: 8px 0 8px 24px;
+  }
+
+  .model-viewer-container {
+    height: 300px;
+  }
+}

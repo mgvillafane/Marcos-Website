@@ -1,13 +1,20 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header.jsx'
 import Hero from './Hero.jsx'
 import ProjectCard from './ProjectCard.jsx'
 import Experience from './Experience.jsx'
 import Education from './Education.jsx'
 import SocialLinks from './SocialLinks.jsx'
+import ProjectDetail from './ProjectDetail.jsx'
 import useIntersectionObserver from './useIntersectionObserver.js'
+import SmartlockImg from './src/public/models/Smartlock.png'
+import RFAmpImg from './src/public/models/RF amplifier.jpg'
+import LoopTestGif from './src/public/models/loop_final_test.gif'
+import PenduloImg from './src/public/models/pendulo.jpeg'
 
-export default function App(){
+
+function HomePage(){
   const aboutRef = useIntersectionObserver()
   const experienceRef = useIntersectionObserver()
   const educationRef = useIntersectionObserver()
@@ -50,7 +57,7 @@ export default function App(){
               desc="Interactive educational platform with courses, videos and quizzes for users." 
               tech="React, Node.js, MongoDB" 
               url="#"
-              image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop"
+              image={SmartlockImg}
             />
             <ProjectCard 
               title="ASTAR - Orientation Estimation of Nanosatellites" 
@@ -71,21 +78,21 @@ export default function App(){
               desc="Social network focused on privacy with posts, comments and messaging." 
               tech="Next.js, PostgreSQL, WebSocket" 
               url="#"
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
+              image={RFAmpImg}
             />
             <ProjectCard 
               title="Robust Motion Planner for Autonomous Robots" 
               desc="Booking platform for hotels and restaurants with integrated payments." 
               tech="React, Stripe API, Django" 
               url="#"
-              image="https://images.unsplash.com/photo-1460925895917-afdab036c0b2?w=500&h=300&fit=crop"
+              image={LoopTestGif}
             />
             <ProjectCard 
-              title="Inventory Manager" 
+              title="Pendulum Control System" 
               desc="Inventory management system with reports, alerts and stock control." 
               tech="TypeScript, MySQL, Electron" 
               url="#"
-              image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop"
+              image={PenduloImg}
             />
             <ProjectCard 
               title="Vector-based Paper Search Agent" 
@@ -147,5 +154,16 @@ export default function App(){
         <p>© {new Date().getFullYear()} Marcos Gomez Villafañe. Made with React. Palette: soft green + dark mode.</p>
       </footer>
     </div>
+  )
+}
+
+export default function App(){
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/project/:projectId" element={<ProjectDetail />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
