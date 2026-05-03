@@ -5,33 +5,38 @@ export default function Education(){
 
   const education = [
     {
-      school: 'Universidad Tecnológica Nacional',
-      degree: 'Bachelor of Systems Engineering',
-      dates: '2016 - 2020',
+      school: 'University of Buenos Aires (UBA)',
+      degree: 'Bachelor Degree in Electronics Engineering',
+      dates: 'Mar 2019 – Apr 2025',
+      location: 'Buenos Aires, Argentina',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/UBA_logo.svg/1200px-UBA_logo.svg.png',
       details: [
-        'GPA: 8.5/10',
-        'Specialization in Software Development',
-        'Thesis: "Algorithm Optimization in Distributed Environments"'
+        'GPA: 8.66 / 10',
+        'Award: Outstanding student',
+        'Thesis: Development of a Robust Reinforcement Learning-Based Motion Planner for Autonomous Robots in Novel Scenarios',
+        'Final grade: 10/10'
       ]
     },
     {
-      school: 'University of Buenos Aires',
-      degree: 'Electronics Engineering',
-      dates: '2019 - 2025',
+      school: 'Karlsruhe Institute of Technology (KIT)',
+      degree: 'Scholarship (DAAD)',
+      dates: 'Oct 2023 – Oct 2024',
+      location: 'Karlsruhe, Germany',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/KIT_logo.svg/1200px-KIT_logo.svg.png',
       details: [
-        'Degree completed with honors',
-        'Courses: Machine Learning, Deep Learning, NLP',
-        'Final Project: Image classifier using CNN'
+        'Full scholarship for study and research in Germany',
+        'Research in reinforcement learning and robotics'
       ]
     },
     {
-      school: 'Google Cloud Academy',
-      degree: 'Professional Cloud Architect',
-      dates: '2022',
+      school: 'Technical University of Berlin (TU Berlin)',
+      degree: 'Exchange Semester',
+      dates: 'Oct 2022 – Mar 2023',
+      location: 'Berlin, Germany',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Logo_TU_Berlin.svg/1200px-Logo_TU_Berlin.svg.png',
       details: [
-        'Validated GCP Certification',
-        'Cloud infrastructure design',
-        'Implementation of scalable solutions'
+        'Study abroad exchange program',
+        'Developed IoT traffic sensor system project'
       ]
     }
   ]
@@ -45,9 +50,12 @@ export default function Education(){
             onClick={() => setExpanded(expanded === idx ? -1 : idx)}
           >
             <div className="header-content">
-              <h3>{edu.school}</h3>
-              <p className="position">{edu.degree}</p>
-              <p className="dates">{edu.dates}</p>
+              {edu.logo && <img src={edu.logo} alt={edu.school} className="edu-logo" />}
+              <div className="header-text">
+                <h3>{edu.school}</h3>
+                <p className="position">{edu.degree}</p>
+                <p className="dates">{edu.dates}</p>
+              </div>
             </div>
             <span className="toggle-icon">
               {expanded === idx ? '−' : '+'}

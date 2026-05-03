@@ -259,8 +259,8 @@ h2{color:#e8eef5;margin-bottom:16px}
 .projects-grid{display:grid;grid-template-columns:1fr;gap:16px}
 .project-card{display:flex;flex-direction:column;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;border:1px solid rgba(255,255,255,0.04)}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(74,157,111,0.15)}
-.project-image-wrapper{width:100%;height:120px;overflow:hidden;background:linear-gradient(135deg, rgba(74,157,111,0.1), rgba(95,168,143,0.05))}
-.project-image{width:100%;height:100%;object-fit:contain;transition:transform .4s ease;will-change:transform}
+.project-image-wrapper{width:100%;height:120px;overflow:hidden;background:linear-gradient(135deg, rgba(74,157,111,0.1), rgba(95,168,143,0.05));display:flex;align-items:center;justify-content:center}
+.project-image{width:100%;height:100%;object-fit:contain;transition:transform .4s ease;will-change:transform;padding:8px}
 .project-card:hover .project-image{transform:scale(1.05)}
 .project-content{padding:10px;flex:1;display:flex;flex-direction:column}
 .project-card h3{margin:0 0 6px 0;color:#e8eef5;font-size:0.95rem}
@@ -268,6 +268,72 @@ h2{color:#e8eef5;margin-bottom:16px}
 .tech{font-size:.75rem;color:var(--muted);margin-top:4px}
 
 .skills-grid{display:grid;grid-template-columns:1fr;gap:12px}
+
+.skills-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.skill-category {
+  padding: 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border: 1px solid rgba(74,157,111,0.2);
+}
+
+.skill-category h3 {
+  margin: 0 0 12px 0;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(74, 157, 111, 0.15);
+  border: 1px solid rgba(74, 157, 111, 0.3);
+  border-radius: 20px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(74, 157, 111, 0.25);
+  transform: translateY(-2px);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.contact-info p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--accent-light);
+}
 
 /* Awards Section */
 .awards-grid{display:grid;grid-template-columns:1fr;gap:16px}
@@ -287,6 +353,27 @@ h2{color:#e8eef5;margin-bottom:16px}
 .header-content h3{margin:0;font-size:1rem;color:#e8eef5}
 .header-content .position{margin:4px 0 0 0;color:var(--accent);font-size:.95rem;font-weight:500}
 .header-content .dates{margin:2px 0 0 0;color:var(--muted);font-size:.85rem}
+
+.edu-logo, .company-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 16px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.header-text {
+  min-width: 0;
+}
 .toggle-icon{font-size:1.5rem;color:var(--accent);font-weight:300;user-select:none;transition:transform .3s ease}
 .accordion-header.active .toggle-icon{transform:rotate(180deg)}
 .accordion-content{padding:0 16px 16px;border-top:1px solid rgba(255,255,255,0.04)}
@@ -323,6 +410,7 @@ h2{color:#e8eef5;margin-bottom:16px}
   .projects-grid{grid-template-columns:repeat(3,1fr)}
   .awards-grid{grid-template-columns:repeat(2,1fr)}
   .skills-grid{grid-template-columns:repeat(4,1fr)}
+  .skills-section{grid-template-columns:repeat(2,1fr)}
   .project-image-wrapper{height:150px}
 }
 
@@ -367,15 +455,16 @@ a:hover{color:var(--accent-light)}
 .project-hero {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 550px;
   overflow: hidden;
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  background: rgba(74, 157, 111, 0.05);
 }
 
 .hero-overlay {
@@ -385,6 +474,13 @@ a:hover{color:var(--accent-light)}
   right: 0;
   padding: 40px;
   background: linear-gradient(180deg, transparent 0%, rgba(15, 20, 25, 0.95) 100%);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
 }
 
 .hero-overlay h1 {
@@ -436,13 +532,82 @@ a:hover{color:var(--accent-light)}
   margin: 24px 0;
 }
 
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(74, 157, 111, 0.2);
+  margin: 24px 0;
+}
+
 .sections-wrapper {
   padding: 40px 20px;
+  display: flex;
+  gap: 40px;
+  position: relative;
+}
+
+.side-nav {
+  position: sticky;
+  top: 80px;
+  width: 200px;
+  flex-shrink: 0;
+  height: fit-content;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border: 1px solid rgba(74,157,111,0.2);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.nav-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  color: #e8eef5;
+  background: rgba(74,157,111,0.1);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  background: rgba(74,157,111,0.15);
+  border-left-color: var(--accent);
+  font-weight: 600;
 }
 
 .max-width-container {
+  flex: 1;
   max-width: 900px;
-  margin: 0 auto;
 }
 
 .detail-section {
@@ -500,7 +665,7 @@ a:hover{color:var(--accent-light)}
 
 @media(max-width: 760px) {
   .project-hero {
-    height: 250px;
+    height: 300px;
   }
 
   .hero-overlay {
@@ -517,6 +682,19 @@ a:hover{color:var(--accent-light)}
 
   .sections-wrapper {
     padding: 24px 16px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .side-nav {
+    position: static;
+    top: auto;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .max-width-container {
+    max-width: 100%;
   }
 
   .detail-section {

@@ -5,33 +5,48 @@ export default function Experience(){
 
   const experiences = [
     {
-      company: 'Tech Innovations Co',
-      role: 'Senior Frontend Developer',
-      dates: '2022 - Present',
+      company: 'Techint Group – Tenaris',
+      role: 'Industrial Process Innovation Researcher',
+      dates: 'Jul 2025 – Present',
+      location: 'Buenos Aires, Argentina',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tenaris_Logo.svg/1200px-Tenaris_Logo.svg.png',
       tasks: [
-        'Developed scalable React applications for 5+ clients',
-        'Optimized performance reducing load time by 40%',
-        'Led a team of 3 junior developers'
+        'Designed and developed robotic systems for automatic pipe quality testing',
       ]
     },
     {
-      company: 'Digital Solutions LLC',
-      role: 'Full Stack Developer',
-      dates: '2020 - 2022',
+      company: 'FZI Research Center for Information Technology',
+      role: 'Research Assistant / Master Thesis Researcher',
+      dates: 'Apr 2024 – Aug 2024',
+      location: 'Karlsruhe, Germany',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/FZI_ForschungszentrumInformatik_Logo.png/1200px-FZI_ForschungszentrumInformatik_Logo.png',
       tasks: [
-        'Built REST APIs with Node.js and Express',
-        'Designed databases in PostgreSQL',
-        'Implemented JWT authentication'
+        'Improved generalization of PPO-based deep reinforcement learning algorithm',
+        'Achieved up to 1.3x higher rewards compared to standard PPO',
+        'Reduced robot collisions by over 60% in novel scenarios',
+        'Developed collision avoidance pipeline based on uncertainty estimation',
+        'Co-authored IEEE IROS 2025 paper on safe social navigation with DRL'
       ]
     },
     {
-      company: 'StartUp Labs',
-      role: 'Junior Developer',
-      dates: '2019 - 2020',
+      company: 'DataEvo',
+      role: 'Python and Shiny Developer',
+      dates: 'May 2019 – Oct 2019',
+      location: 'Buenos Aires, Argentina',
+      logo: 'https://via.placeholder.com/100x100?text=DataEvo',
       tasks: [
-        'First steps in full stack web development',
-        'Learned best practices and clean code',
-        'Contributed to open source projects'
+        'Automated data science workflows using Python',
+        'Optimized dashboards using Shiny'
+      ]
+    },
+    {
+      company: 'Programming for Design (P4D)',
+      role: 'Programming Intern',
+      dates: 'Jan 2019 – Apr 2019',
+      location: 'Buenos Aires, Argentina',
+      logo: 'https://via.placeholder.com/100x100?text=P4D',
+      tasks: [
+        'Developed and improved website features using HTML, CSS, JavaScript'
       ]
     }
   ]
@@ -45,9 +60,12 @@ export default function Experience(){
             onClick={() => setExpanded(expanded === idx ? -1 : idx)}
           >
             <div className="header-content">
-              <h3>{exp.company}</h3>
-              <p className="position">{exp.role}</p>
-              <p className="dates">{exp.dates}</p>
+              {exp.logo && <img src={exp.logo} alt={exp.company} className="company-logo" />}
+              <div className="header-text">
+                <h3>{exp.company}</h3>
+                <p className="position">{exp.role}</p>
+                <p className="dates">{exp.dates}</p>
+              </div>
             </div>
             <span className="toggle-icon">
               {expanded === idx ? '−' : '+'}

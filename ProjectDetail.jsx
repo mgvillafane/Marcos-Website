@@ -6,6 +6,7 @@ import SmartlockImg from './src/public/models/Smartlock.png'
 import RFAmpImg from './src/public/models/RF amplifier.jpg'
 import LoopTestGif from './src/public/models/loop_final_test.gif'
 import PenduloImg from './src/public/models/pendulo.jpeg'
+import MultistageImg from './src/public/models/C2.png'
 
 
 const projectsData = {
@@ -14,18 +15,22 @@ const projectsData = {
     desc: 'Interactive educational platform with courses, videos and quizzes for users.',
     tech: 'React, Node.js, MongoDB',
     image: SmartlockImg,
+    github: 'https://github.com/mgvillafane/smartlock-intelligent-lock',
+    youtube: 'https://www.youtube.com/watch?v=X5LYxJknXuw',
   },
   'astar-orientation-estimation': {
     title: 'ASTAR - Orientation Estimation of Nanosatellites',
     desc: 'Mobile application to organize projects and tasks with real-time collaboration.',
     tech: 'React Native, Firebase, Redux',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=300&fit=crop',
+    github: 'https://github.com/mgvillafane/astar-orientation-estimation',
   },
   'multistage-voltage-regulator': {
     title: 'Multistage Voltage Regulator',
     desc: 'Interactive dashboard to visualize business metrics and reports in real time.',
     tech: 'Vue.js, D3.js, Express',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop',
+    image: MultistageImg,
+    github: 'https://github.com/mgvillafane/multistage-voltage-regulator',
     download: {
       url: '/models/tp-c2.stl',
       label: 'Download 3D Model (.STL)',
@@ -38,30 +43,35 @@ const projectsData = {
     desc: 'Social network focused on privacy with posts, comments and messaging.',
     tech: 'Next.js, PostgreSQL, WebSocket',
     image: RFAmpImg,
+    github: 'https://github.com/mgvillafane/high-frequency-amplifier',
   },
   'robust-motion-planner': {
     title: 'Robust Motion Planner for Autonomous Robots',
     desc: 'Booking platform for hotels and restaurants with integrated payments.',
     tech: 'React, Stripe API, Django',
     image: LoopTestGif,
+    github: 'https://github.com/mgvillafane/robust-motion-planner',
   },
   'pendulum-control-system': {
     title: 'Pendulum Control System',
     desc: 'Inventory management system with reports, alerts and stock control.',
     tech: 'TypeScript, MySQL, Electron',
     image: PenduloImg,
+    github: 'https://github.com/mgvillafane/pendulum-control-system',
   },
   'vector-based-paper-search': {
     title: 'Vector-based Paper Search Agent',
     desc: 'Intelligent academic paper search engine using vector embeddings and semantic search.',
     tech: 'Python, FastAPI, Vector DB, LLM',
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop',
+    github: 'https://github.com/mgvillafane/vector-based-paper-search',
   },
   'antenna-position-estimator': {
     title: 'Antenna Position Estimator with AI',
     desc: 'Antenna localization system using neural networks and signal data to optimize coverage.',
     tech: 'TensorFlow, Python, GIS, SQL',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
+    github: 'https://github.com/mgvillafane/antenna-position-estimator',
   },
 }
 
@@ -69,6 +79,7 @@ const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
 
 export default function ProjectDetail() {
   const { projectId } = useParams()
+  const [activeSection, setActiveSection] = React.useState('overview')
   
   const project = projectsData[projectId] || {
     title: 'Project Not Found',
@@ -86,6 +97,33 @@ export default function ProjectDetail() {
     { id: 'learnings', label: 'Learnings' },
   ]
 
+  const handleNavClick = (sectionId) => {
+    setActiveSection(sectionId)
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const sectionIds = ['overview', 'resources', 'features', 'technology', 'outcomes', 'learnings']
+      for (let id of sectionIds) {
+        const element = document.getElementById(id)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 150 && rect.bottom > 150) {
+            setActiveSection(id)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div className="project-detail">
       {/* Hero Section with Image */}
@@ -95,17 +133,57 @@ export default function ProjectDetail() {
           <h1>{project.title}</h1>
           <p className="hero-subtitle">{project.desc}</p>
           <p className="hero-tech"><strong>Technologies:</strong> {project.tech}</p>
-          {project.download && (
-            <a href={project.download.url} download={project.download.filename} className="btn primary download-btn">
-              {project.download.label}
-            </a>
-          )}
+          <div className="hero-actions">
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn primary">
+                🔗 View on GitHub
+              </a>
+            )}
+            {project.download && (
+              <a href={project.download.url} download={project.download.filename} className="btn primary download-btn">
+                {project.download.label}
+              </a>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Scrollable Sections */}
+      {/* Scrollable Sections with Side Navigation */}
       <div className="sections-wrapper">
+        {/* Side Navigation */}
+        <nav className="side-nav">
+          <div className="nav-title">Sections</div>
+          <ul className="nav-list">
+            {sections.map(section => (
+              <li key={section.id}>
+                <button 
+                  className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
+                  onClick={() => handleNavClick(section.id)}
+                >
+                  {section.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        
         <div className="max-width-container">
+          {/* 3D Model Viewer Section - Only for Multistage Voltage Regulator */}
+          {project.model3d && (
+            <section id="model3d" className="detail-section">
+              <h2>3D Model</h2>
+              <div className="model-viewer-container">
+                <Canvas camera={{ position: [10, 50, 50], fov:100 }}>
+                  <ambientLight intensity={0.5} />
+                  <directionalLight position={[10, 10, 10]} />
+                  <Suspense fallback={null}>
+                    <Model />
+                  </Suspense>
+                  <OrbitControls />
+                </Canvas>
+              </div>
+            </section>
+          )}
           {/* Overview Section */}
           <section id="overview" className="detail-section">
             <h2>Overview</h2>
@@ -172,22 +250,25 @@ export default function ProjectDetail() {
             <p>{loremIpsum}</p>
           </section>
 
-          {/* 3D Model Viewer Section - Only for Multistage Voltage Regulator */}
-          {project.model3d && (
-            <section id="model3d" className="detail-section">
-              <h2>3D Model</h2>
-              <div className="model-viewer-container">
-                <Canvas camera={{ position: [0, 0, 5] }}>
-                  <ambientLight intensity={0.5} />
-                  <directionalLight position={[10, 10, 10]} />
-                  <Suspense fallback={null}>
-                    <Model />
-                  </Suspense>
-                  <OrbitControls />
-                </Canvas>
+          {/* YouTube Video Section - Only for Smartlock */}
+          {project.youtube && (
+            <section id="video" className="detail-section">
+              <h2>Demo Video</h2>
+              <div className="video-container">
+                <iframe
+                  width="100%"
+                  height="500"
+                  src={`https://www.youtube.com/embed/${project.youtube.split('v=')[1]}`}
+                  title="Project Demo"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
             </section>
           )}
+
+          
         </div>
       </div>
     </div>
