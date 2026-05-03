@@ -9,7 +9,7 @@ export default function Experience(){
       role: 'Industrial Process Innovation Researcher',
       dates: 'Jul 2025 – Present',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tenaris_Logo.svg/1200px-Tenaris_Logo.svg.png',
+      logo: 'https://www.tenaris.com/media/z0bal0tu/microsoftteams-image-8.png?v=1db50eb66c4c5f0',
       tasks: [
         'Designed and developed robotic systems for automatic pipe quality testing',
       ]
@@ -19,7 +19,7 @@ export default function Experience(){
       role: 'Research Assistant / Master Thesis Researcher',
       dates: 'Apr 2024 – Aug 2024',
       location: 'Karlsruhe, Germany',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/FZI_ForschungszentrumInformatik_Logo.png/1200px-FZI_ForschungszentrumInformatik_Logo.png',
+      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxRk62XCWaxs7uN8FlSQgr19SogdI93ICVrg&s',
       tasks: [
         'Improved generalization of PPO-based deep reinforcement learning algorithm',
         'Achieved up to 1.3x higher rewards compared to standard PPO',
@@ -33,7 +33,7 @@ export default function Experience(){
       role: 'Python and Shiny Developer',
       dates: 'May 2019 – Oct 2019',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://via.placeholder.com/100x100?text=DataEvo',
+      logo: 'https://media.licdn.com/dms/image/v2/C560BAQFMNb3gRjHKLw/company-logo_200_200/company-logo_200_200/0/1631322002605?e=1779321600&v=beta&t=0UENcq5VSBl16LsQ1OxtxHKR7_muAEt5Zi_JYLoWM0A',
       tasks: [
         'Automated data science workflows using Python',
         'Optimized dashboards using Shiny'
@@ -44,7 +44,7 @@ export default function Experience(){
       role: 'Programming Intern',
       dates: 'Jan 2019 – Apr 2019',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://via.placeholder.com/100x100?text=P4D',
+      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQHaO2xvf4A9AA/company-logo_100_100/company-logo_100_100/0/1631315773744?e=1779321600&v=beta&t=YbWlhUNPwy1s94Ul2XYHrS4bR1uYM6nkoB5GF10Cf7k',
       tasks: [
         'Developed and improved website features using HTML, CSS, JavaScript'
       ]

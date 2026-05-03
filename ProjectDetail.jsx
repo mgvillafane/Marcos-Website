@@ -7,7 +7,7 @@ import RFAmpImg from './src/public/models/RF amplifier.jpg'
 import LoopTestGif from './src/public/models/loop_final_test.gif'
 import PenduloImg from './src/public/models/pendulo.jpeg'
 import MultistageImg from './src/public/models/C2.png'
-
+import AntennaAIImg from './src/public/models/Timing_Advance_Bie.png'
 
 const projectsData = {
   'smartlock-intelligent-lock': {
@@ -70,7 +70,7 @@ const projectsData = {
     title: 'Antenna Position Estimator with AI',
     desc: 'Antenna localization system using neural networks and signal data to optimize coverage.',
     tech: 'TensorFlow, Python, GIS, SQL',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
+    image: AntennaAIImg,
     github: 'https://github.com/mgvillafane/antenna-position-estimator',
   },
 }

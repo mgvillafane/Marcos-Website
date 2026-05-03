@@ -13,6 +13,7 @@ import RFAmpImg from './src/public/models/RF amplifier.jpg'
 import LoopTestGif from './src/public/models/loop_final_test.gif'
 import PenduloImg from './src/public/models/pendulo.jpeg'
 import MultistageImg from './src/public/models/C2.png'
+import WorkshopMOBCOM from './src/public/models/Timing_Advance_Bie.png'
 
 function HomePage(){
   const aboutRef = useIntersectionObserver()
@@ -20,6 +21,72 @@ function HomePage(){
   const educationRef = useIntersectionObserver()
   const projectsRef = useIntersectionObserver()
   const contactRef = useIntersectionObserver()
+  const [selectedCategory, setSelectedCategory] = React.useState('All')
+
+  const projectsList = [
+    {
+      title: 'Smartlock - Intelligent Lock',
+      desc: 'IoT smart lock with online dashboard for access tracking and remote control.',
+      tech: 'React, Node.js, MongoDB',
+      image: SmartlockImg,
+      categories: ['Electronics', 'Automation']
+    },
+    {
+      title: 'ASTAR - Orientation Estimation of Nanosatellites',
+      desc: 'CubeSat attitude estimation using sensor fusion with multiple sensors for precise orientation.',
+      tech: 'React Native, Firebase, Redux',
+      image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=300&fit=crop',
+      categories: ['Deep Learning', 'Signal Processing']
+    },
+    {
+      title: 'Multistage Voltage Regulator',
+      desc: '3-stage amplifier design with precise voltage regulation and compensation networks.',
+      tech: 'Vue.js, D3.js, Express',
+      image: MultistageImg,
+      categories: ['Electronics', 'Signal Processing']
+    },
+    {
+      title: 'High Frequency Amplifier',
+      desc: 'Broadband RF amplifier design optimized for MHz range applications.',
+      tech: 'Next.js, PostgreSQL, WebSocket',
+      image: RFAmpImg,
+      categories: ['Electronics', 'Signal Processing']
+    },
+    {
+      title: 'Robust Motion Planner for Autonomous Robots',
+      desc: 'Reinforcement learning-based motion planning with collision avoidance for novel environments.',
+      tech: 'React, Stripe API, Django',
+      image: LoopTestGif,
+      categories: ['Deep Learning', 'Automation']
+    },
+    {
+      title: 'Pendulum Control System',
+      desc: 'Advanced control system for inverted pendulum using PID and adaptive algorithms.',
+      tech: 'TypeScript, MySQL, Electron',
+      image: PenduloImg,
+      categories: ['Automation', 'Electronics']
+    },
+    {
+      title: 'Vector-based Paper Search Agent',
+      desc: 'Intelligent semantic search engine using vector embeddings and LLMs for academic papers.',
+      tech: 'Python, FastAPI, Vector DB, LLM',
+      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop',
+      categories: ['Deep Learning']
+    },
+    {
+      title: 'Antenna Position Estimator with AI',
+      desc: 'Neural network-based antenna localization using signal data and GIS integration.',
+      tech: 'TensorFlow, Python, GIS, SQL',
+      image: WorkshopMOBCOM,
+      categories: ['Deep Learning', 'Signal Processing']
+    }
+  ]
+
+  const categories = ['All', 'Deep Learning', 'Signal Processing', 'Automation', 'Electronics']
+  
+  const filteredProjects = selectedCategory === 'All' 
+    ? projectsList 
+    : projectsList.filter(project => project.categories.includes(selectedCategory))
 
   return (
     <div className="app">
@@ -103,65 +170,44 @@ function HomePage(){
         </section>
 
         <section id="projects" className="card fade-section" ref={projectsRef}>
-          <h2>Projects</h2>
-          <div className="projects-grid">
-            <ProjectCard 
-              title="Smartlock - Intelligent Lock" 
-              desc="Interactive educational platform with courses, videos and quizzes for users." 
-              tech="React, Node.js, MongoDB" 
-              url="#"
-              image={SmartlockImg}
-            />
-            <ProjectCard 
-              title="ASTAR - Orientation Estimation of Nanosatellites" 
-              desc="Mobile application to organize projects and tasks with real-time collaboration." 
-              tech="React Native, Firebase, Redux" 
-              url="#"
-              image="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=300&fit=crop"
-            />
-            <ProjectCard 
-              title="Multistage Voltage Regulator" 
-              desc="Interactive dashboard to visualize business metrics and reports in real time." 
-              tech="Vue.js, D3.js, Express" 
-              url="#"
-              image={MultistageImg}
-            />
-            <ProjectCard 
-              title="High Frequency Amplifier" 
-              desc="Social network focused on privacy with posts, comments and messaging." 
-              tech="Next.js, PostgreSQL, WebSocket" 
-              url="#"
-              image={RFAmpImg}
-            />
-            <ProjectCard 
-              title="Robust Motion Planner for Autonomous Robots" 
-              desc="Booking platform for hotels and restaurants with integrated payments." 
-              tech="React, Stripe API, Django" 
-              url="#"
-              image={LoopTestGif}
-            />
-            <ProjectCard 
-              title="Pendulum Control System" 
-              desc="Inventory management system with reports, alerts and stock control." 
-              tech="TypeScript, MySQL, Electron" 
-              url="#"
-              image={PenduloImg}
-            />
-            <ProjectCard 
-              title="Vector-based Paper Search Agent" 
-              desc="Intelligent academic paper search engine using vector embeddings and semantic search." 
-              tech="Python, FastAPI, Vector DB, LLM" 
-              url="#"
-              image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop"
-            />
-            <ProjectCard 
-              title="Antenna Position Estimator with AI" 
-              desc="Antenna localization system using neural networks and signal data to optimize coverage." 
-              tech="TensorFlow, Python, GIS, SQL" 
-              url="#"
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
-            />
+          <div className="projects-header">
+            <h2>Projects</h2>
+            
+            {/* Filter Bar */}
+            <div className="filter-bar">
+              {categories.map(category => (
+                <button
+                  key={category}
+                  className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* Projects Grid */}
+          <div className="projects-grid">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard 
+                key={project.title}
+                title={project.title}
+                desc={project.desc}
+                tech={project.tech}
+                url="#"
+                image={project.image}
+                categories={project.categories}
+              />
+            ))}
+          </div>
+
+          {/* Empty State */}
+          {filteredProjects.length === 0 && (
+            <div className="empty-state">
+              <p>No projects found in this category.</p>
+            </div>
+          )}
         </section>
 
         <section id="awards" className="card fade-section" ref={contactRef}>

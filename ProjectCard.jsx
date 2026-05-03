@@ -13,7 +13,7 @@ const projectSlugs = {
   'Antenna Position Estimator with AI': 'antenna-position-estimator',
 }
 
-export default function ProjectCard({title, desc, tech, url, image}){
+export default function ProjectCard({title, desc, tech, url, image, categories, shouldAnimate, animationIndex}){
   const projectSlug = projectSlugs[title] || title.toLowerCase().replace(/\s+/g, '-')
   
   return (
@@ -25,6 +25,13 @@ export default function ProjectCard({title, desc, tech, url, image}){
         <h3>{title}</h3>
         <p className="desc">{desc}</p>
         <p className="tech"><strong>Technologies:</strong> {tech}</p>
+        {categories && categories.length > 0 && (
+          <div className="project-categories">
+            {categories.map((category) => (
+              <span key={category} className="category-badge">{category}</span>
+            ))}
+          </div>
+        )}
         <Link to={`/project/${projectSlug}`} target="_blank" className="btn">View project</Link>
       </div>
     </article>

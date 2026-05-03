@@ -9,7 +9,7 @@ export default function Education(){
       degree: 'Bachelor Degree in Electronics Engineering',
       dates: 'Mar 2019 – Apr 2025',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/UBA_logo.svg/1200px-UBA_logo.svg.png',
+      logo: 'https://media.licdn.com/dms/image/v2/C4E0BAQF-QztqGXBokQ/company-logo_200_200/company-logo_200_200/0/1631310205614?e=2147483647&v=beta&t=uxXG_R09K4IQ3F3YVAhjFmHV9PZeD1J_Urr-D2onJc4',
       details: [
         'GPA: 8.66 / 10',
         'Award: Outstanding student',
@@ -22,7 +22,7 @@ export default function Education(){
       degree: 'Scholarship (DAAD)',
       dates: 'Oct 2023 – Oct 2024',
       location: 'Karlsruhe, Germany',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/KIT_logo.svg/1200px-KIT_logo.svg.png',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_KIT.svg',
       details: [
         'Full scholarship for study and research in Germany',
         'Research in reinforcement learning and robotics'
@@ -33,7 +33,7 @@ export default function Education(){
       degree: 'Exchange Semester',
       dates: 'Oct 2022 – Mar 2023',
       location: 'Berlin, Germany',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Logo_TU_Berlin.svg/1200px-Logo_TU_Berlin.svg.png',
+      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGnwhO3hEjGSJ-X9-UxEe1sklwiH4IJFtow&s',
       details: [
         'Study abroad exchange program',
         'Developed IoT traffic sensor system project'
