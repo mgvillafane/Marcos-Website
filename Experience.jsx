@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import DataEvo from './src/public/models/DataEvo.png'
+import Tenaris from './src/public/models/Tenaris.png'
 
 export default function Experience(){
   const [expanded, setExpanded] = useState(0)
@@ -33,7 +35,7 @@ export default function Experience(){
       role: 'Python and Shiny Developer',
       dates: 'May 2019 – Oct 2019',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://media.licdn.com/dms/image/v2/C560BAQFMNb3gRjHKLw/company-logo_200_200/company-logo_200_200/0/1631322002605?e=1779321600&v=beta&t=0UENcq5VSBl16LsQ1OxtxHKR7_muAEt5Zi_JYLoWM0A',
+      logo: DataEvo,
       tasks: [
         'Automated data science workflows using Python',
         'Optimized dashboards using Shiny'

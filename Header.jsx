@@ -36,6 +36,7 @@ export default function Header(){
   return (
     <header className={`site-header ${isVisible ? 'visible' : ''}`}>
       <nav className="nav container">
+        <div className="logo-initials">MGV</div>
         <ul className="nav-links">
           <li><a onClick={() => scrollToSection('about')} className={activeSection === 'about' ? 'active' : ''}>About</a></li>
           <li><a onClick={() => scrollToSection('experience')} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
