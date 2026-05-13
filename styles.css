@@ -2,8 +2,8 @@
   --bg:#050812; /* darker navy blue */
   --card:#0a0f23;
   --muted:#6b7280;
-  --accent:#2563eb; /* darker, more muted blue */
-  --accent-light:#3b82f6;
+  --accent:#3cb5f19c; /* darker, more muted blue */
+  --accent-light:#2f80a5cb;
   --glass: rgba(255,255,255,0.01);
   --radius:12px;
   --maxw:1100px;
@@ -483,7 +483,7 @@ h2{color:#e8eef5;margin-bottom:16px}
 .accordion-header:hover{background:rgba(37,99,235,0.04)}
 .accordion-header.active{background:rgba(37,99,235,0.08)}
 .header-content h3{margin:0;font-size:1rem;color:#e8eef5}
-.header-content .position{margin:4px 0 0 0;color:var(--accent);font-size:.95rem;font-weight:500}
+.header-content .position{margin:4px 0 0 0;color:var(--accent);font-size:.95rem;font-weight: bold;}
 .header-content .dates{margin:2px 0 0 0;color:var(--muted);font-size:.85rem}
 
 .edu-logo, .company-logo {

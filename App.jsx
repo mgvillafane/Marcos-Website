@@ -14,6 +14,7 @@ import LoopTestGif from './src/public/models/loop_final_test.gif'
 import PenduloImg from './src/public/models/pendulo.jpeg'
 import MultistageImg from './src/public/models/C2.png'
 import WorkshopMOBCOM from './src/public/models/Timing_Advance_Bie.png'
+import ProfilePic from './src/public/models/profile-pic.jpeg'
 
 function HomePage(){
   const aboutRef = useIntersectionObserver()
@@ -96,7 +97,7 @@ function HomePage(){
       <main className="container">
         <section id="about" className="card fade-section" ref={aboutRef}>
           <div className="about-content">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="My photo" className="about-image" />
+            <img src={ProfilePic} alt="My photo" className="about-image" />
             <div className="about-text">
               <h2>About me</h2>
               <p className="lead">Electronics Engineer passionate about robotics, AI, and innovation.</p>
@@ -120,53 +121,6 @@ function HomePage(){
         <section id="education" className="card fade-section" ref={educationRef}>
           <h2>Education</h2>
           <Education />
-        </section>
-
-        <section id="skills" className="card fade-section">
-          <h2>Skills</h2>
-          <div className="skills-section">
-            <div className="skill-category">
-              <h3>Programming Languages</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">Python</span>
-                <span className="skill-tag">C/C++</span>
-                <span className="skill-tag">Assembly</span>
-                <span className="skill-tag">JavaScript</span>
-                <span className="skill-tag">MATLAB</span>
-                <span className="skill-tag">LaTeX</span>
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3>Hardware & Design</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">KiCAD</span>
-                <span className="skill-tag">FreeCAD</span>
-                <span className="skill-tag">LTSpice</span>
-                <span className="skill-tag">Keysight ADS</span>
-                <span className="skill-tag">Proteus</span>
-                <span className="skill-tag">Mbed OS</span>
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3>AI & Frameworks</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">PyTorch</span>
-                <span className="skill-tag">TensorFlow</span>
-                <span className="skill-tag">Pandas</span>
-                <span className="skill-tag">Simulink</span>
-                <span className="skill-tag">Node-RED</span>
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3>Languages</h3>
-              <div className="skill-tags">
-                <span className="skill-tag">Spanish (Native)</span>
-                <span className="skill-tag">English (Advanced - TOEFL 114)</span>
-                <span className="skill-tag">German (Advanced - TestDaF C1)</span>
-                <span className="skill-tag">Italian (Conversational)</span>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section id="projects" className="card fade-section" ref={projectsRef}>
