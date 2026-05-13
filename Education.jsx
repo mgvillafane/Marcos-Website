@@ -5,6 +5,17 @@ export default function Education(){
 
   const education = [
     {
+      school: 'University of California, Berkeley (UC Berkeley)',
+      degree: 'Master of Engineering in Electrical Engineering and Computer Science',
+      dates: 'Aug 2025 – Present',
+      location: 'Berkeley, California, USA',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Cal_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original',
+      details: [
+        'Master of Engineering program in EECS',
+        'Focus on advanced electrical engineering and computer science'
+      ]
+    },
+    {
       school: 'University of Buenos Aires (UBA)',
       degree: 'Bachelor Degree in Electronics Engineering',
       dates: 'Mar 2019 – Apr 2025',
