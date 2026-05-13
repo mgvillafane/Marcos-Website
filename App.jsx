@@ -103,12 +103,7 @@ function HomePage(){
               <p className="lead">Electronics Engineer passionate about robotics, AI, and innovation.</p>
               <p>I am an Electronics Engineer with strong expertise in reinforcement learning, robotics, and hardware design. Currently working at Techint Group (Tenaris) on innovative robotic systems for industrial applications.</p>
               <p>With experience in both research and industry, I've developed solutions ranging from IoT smart locks to advanced motion planning algorithms for autonomous robots. I'm passionate about solving complex engineering problems through a combination of hardware design and intelligent software.</p>
-              <div className="contact-info" style={{marginTop: '20px'}}>
-                <p><strong>📧 Email:</strong> <a href="mailto:mgomezvillafane@gmail.com">mgomezvillafane@gmail.com</a></p>
-                <p><strong>📱 Phone:</strong> +54 11 5331 0379</p>
-                <p><strong>🔗 LinkedIn:</strong> <a href="https://linkedin.com/in/marcos-gomez-villafane" target="_blank" rel="noopener noreferrer">linkedin.com/in/marcos-gomez-villafane</a></p>
-                <p><strong>💻 GitHub:</strong> <a href="https://github.com/mgvillafane" target="_blank" rel="noopener noreferrer">github.com/mgvillafane</a></p>
-              </div>
+              
             </div>
           </div>
         </section>
