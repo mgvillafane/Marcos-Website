@@ -42,7 +42,7 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/(?!.*\\.(?:js|css|png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf|ico|json)$).*",
       "destination": "/index.html"
     }
   ]

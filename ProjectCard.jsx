@@ -32,7 +32,7 @@ export default function ProjectCard({title, desc, tech, url, image, categories, 
             ))}
           </div>
         )}
-        <Link to={`/project/${projectSlug}`} target="_blank" className="btn">View project</Link>
+        <Link to={`/project/${projectSlug}`} className="btn">View project</Link>
       </div>
     </article>
   )
