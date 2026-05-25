@@ -253,7 +253,7 @@ h2{color:#e8eef5;margin-bottom:16px}
 .role{color:var(--accent);font-weight:600}
 .lead{color:var(--muted);margin-top:6px}
 .ctas{margin-top:14px;display:flex;gap:10px}
-.btn{display:inline-block;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;padding:8px 12px;border-radius:10px;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease}
+.btn{display:inline-block;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;padding:8px 12px;border-radius:10px;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease;line-height:1;height:fit-content}
 .btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.5)}
 .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-light));color:#0f1419;border:none;font-weight:600}
 
@@ -621,6 +621,7 @@ a:hover{color:var(--accent-light)}
   gap: 12px;
   margin-top: 16px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .hero-overlay h1 {
@@ -644,8 +645,7 @@ a:hover{color:var(--accent-light)}
 
 .download-btn {
   display: inline-block;
-  margin-top: 16px;
-  padding: 10px 20px;
+  margin-top: 0;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   color: #050812;
   border: none;

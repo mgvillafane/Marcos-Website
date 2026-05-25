@@ -11,8 +11,7 @@ export default function Education(){
       location: 'Berkeley, California, USA',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Cal_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original',
       details: [
-        'Master of Engineering program in EECS',
-        'Focus on advanced electrical engineering and computer science'
+        'Master of Engineering program in EECS'
       ]
     },
     {
@@ -46,8 +45,8 @@ export default function Education(){
       location: 'Berlin, Germany',
       logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGnwhO3hEjGSJ-X9-UxEe1sklwiH4IJFtow&s',
       details: [
-        'Study abroad exchange program',
-        'Developed IoT traffic sensor system project'
+      
+        
       ]
     }
   ]

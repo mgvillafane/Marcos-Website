@@ -17,7 +17,7 @@ export default function Header(){
       // Mostrar navbar después de scrollear un poco
       setIsVisible(window.scrollY > 100)
       
-      const sections = ['about', 'experience', 'education', 'skills', 'projects', 'awards', 'contact']
+      const sections = ['about', 'experience', 'education',  'projects', 'awards', 'contact']
       for (const section of sections){
         const element = document.getElementById(section)
         if (element){
@@ -41,7 +41,6 @@ export default function Header(){
           <li><a onClick={() => scrollToSection('about')} className={activeSection === 'about' ? 'active' : ''}>About</a></li>
           <li><a onClick={() => scrollToSection('experience')} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
           <li><a onClick={() => scrollToSection('education')} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
-          <li><a onClick={() => scrollToSection('skills')} className={activeSection === 'skills' ? 'active' : ''}>Skills</a></li>
           <li><a onClick={() => scrollToSection('projects')} className={activeSection === 'projects' ? 'active' : ''}>Projects</a></li>
           <li><a onClick={() => scrollToSection('awards')} className={activeSection === 'awards' ? 'active' : ''}>Awards</a></li>
           <li><a onClick={() => scrollToSection('contact')} className={`cta ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a></li>

@@ -8,6 +8,8 @@ import LoopTestGif from './src/public/models/loop_final_test.gif'
 import PenduloImg from './src/public/models/pendulo.jpeg'
 import MultistageImg from './src/public/models/C2.png'
 import AntennaAIImg from './src/public/models/Timing_Advance_Bie.png'
+import PaperSearchImg from './src/public/models/PaperSearch.png'
+import TUBerlinImg from './src/public/models/TUBerlin.png'
 
 const projectsData = {
   'smartlock-intelligent-lock': {
@@ -17,6 +19,7 @@ const projectsData = {
     image: SmartlockImg,
     github: 'https://github.com/mgvillafane/smartlock-intelligent-lock',
     youtube: 'https://www.youtube.com/watch?v=X5LYxJknXuw',
+    coauthors: '',
     overview: 'An intelligent IoT lock system that combines hardware design with web technologies to provide secure, remote-controlled access management. The system features real-time access tracking, user authentication, and a comprehensive dashboard for monitoring lock activities.',
     features: [
       'Remote unlock/lock control via web dashboard',
@@ -48,6 +51,7 @@ const projectsData = {
     tech: 'Python, Sensor Fusion, Quaternions, Signal Processing',
     image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=300&fit=crop',
     github: 'https://github.com/mgvillafane/astar-orientation-estimation',
+    coauthors: '',
     overview: 'ASTAR is an advanced attitude estimation system designed for CubeSat nanosatellites. It uses multi-sensor fusion algorithms to accurately determine the satellite\'s 3D orientation in space, critical for communication and payload operations. The system implements complementary filters and Kalman filters for robust estimation.',
     features: [
       'Multi-sensor fusion (gyroscope, magnetometer, sun sensor)',
@@ -85,6 +89,7 @@ const projectsData = {
       filename: 'tp-c2.stl',
     },
     model3d: true,
+    coauthors: 'Agustin Pessina, Ezequiel Rodriguez',
     overview: 'A sophisticated voltage regulation circuit implementing a 3-stage amplifier with active compensation networks. Designed for stable voltage output with minimal ripple and fast transient response. The circuit includes feedback compensation, short-circuit protection, and thermal management features.',
     features: [
       'Three-stage amplification with active compensation',
@@ -116,6 +121,7 @@ const projectsData = {
     tech: 'Keysight ADS, PCB Design, RF Electronics, Simulation',
     image: RFAmpImg,
     github: 'https://github.com/mgvillafane/high-frequency-amplifier',
+    coauthors: '',
     overview: 'A high-performance RF amplifier designed for broadband operation in the MHz frequency range. Features include impedance matching networks, gain optimization, and noise figure minimization. The design was validated using Keysight ADS simulations and prototype testing.',
     features: [
       'Broadband operation from 10 MHz to 1 GHz',
@@ -147,6 +153,7 @@ const projectsData = {
     tech: 'PyTorch, ROS, Gazebo, Deep Reinforcement Learning',
     image: LoopTestGif,
     github: 'https://github.com/mgvillafane/robust-motion-planner',
+    coauthors: '',
     overview: 'An advanced motion planning system for autonomous robots using deep reinforcement learning (PPO algorithm). The system learns to navigate complex environments while avoiding collisions and optimizing for smooth, efficient paths. Trained in simulation with transfer to real robots.',
     features: [
       'Deep reinforcement learning using Proximal Policy Optimization (PPO)',
@@ -178,6 +185,7 @@ const projectsData = {
     tech: 'Python, Control Theory, Real-time Systems, Arduino',
     image: PenduloImg,
     github: 'https://github.com/mgvillafane/pendulum-control-system',
+    coauthors: '',
     overview: 'A sophisticated control system for the inverted pendulum problem, implementing both classical PID control and advanced adaptive algorithms. The system includes real-time hardware control, sensor feedback processing, and visualization of system dynamics.',
     features: [
       'PID controller with automatic tuning',
@@ -207,8 +215,9 @@ const projectsData = {
     title: 'Vector-based Paper Search Agent',
     desc: 'Intelligent semantic search engine using vector embeddings and LLMs for academic papers.',
     tech: 'Python, FastAPI, Vector Databases, OpenAI API, Embeddings',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop',
+    image: PaperSearchImg,
     github: 'https://github.com/mgvillafane/vector-based-paper-search',
+    coauthors: '',
     overview: 'An intelligent research assistant that uses semantic search and large language models to find and summarize academic papers. The system converts paper abstracts and content into vector embeddings, enabling semantic similarity search far beyond keyword matching.',
     features: [
       'Semantic search using vector embeddings (OpenAI Embeddings)',
@@ -240,6 +249,40 @@ const projectsData = {
     tech: 'TensorFlow, Python, GIS, Signal Processing, CNNs',
     image: AntennaAIImg,
     github: 'https://github.com/mgvillafane/antenna-position-estimator',
+    coauthors: '',
+    overview: 'An AI-powered system that estimates antenna positions from received signal strength indicators (RSSI) and other signal characteristics. Uses convolutional neural networks trained on real-world signal propagation data to achieve accurate geolocation estimates.',
+    features: [
+      'Convolutional Neural Network for signal pattern recognition',
+      'Signal preprocessing and feature engineering',
+      'GIS integration for geographic visualization',
+      'Real-time inference under 100ms latency',
+      'Confidence scoring for position estimates',
+      'Adaptation to changing propagation conditions'
+    ],
+    outcomes: [
+      'Achieved 95% accuracy within 500m in urban environments',
+      'Successfully deployed for site survey analysis',
+      'Reduced manual antenna positioning time by 70%',
+      'Comprehensive training dataset created',
+      'Integration with existing GIS platforms',
+      'Technical publication in wireless communications journal'
+    ],
+    learnings: [
+      'Deep learning for signal processing and classification',
+      'CNN architecture design and optimization',
+      'Radio propagation modeling and simulation',
+      'GIS data handling and visualization',
+      'Real-world machine learning deployment challenges'
+    ]
+  },
+
+  'IoT-Traffic-Sensor-Reboot': {
+    title: 'Antenna Position Estimator with AI',
+    desc: 'Neural network-based antenna localization using signal data and GIS integration.',
+    tech: 'TensorFlow, Python, GIS, Signal Processing, CNNs',
+    image: TUBerlinImg,
+    github: 'https://github.com/mgvillafane/antenna-position-estimator',
+    coauthors: '',
     overview: 'An AI-powered system that estimates antenna positions from received signal strength indicators (RSSI) and other signal characteristics. Uses convolutional neural networks trained on real-world signal propagation data to achieve accurate geolocation estimates.',
     features: [
       'Convolutional Neural Network for signal pattern recognition',
@@ -282,7 +325,6 @@ export default function ProjectDetail() {
 
   const sections = [
     { id: 'overview', label: 'Overview' },
-    { id: 'resources', label: 'Resources' },
     { id: 'features', label: 'Features' },
     { id: 'technology', label: 'Technology' },
     { id: 'outcomes', label: 'Outcomes' },
@@ -299,7 +341,7 @@ export default function ProjectDetail() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ['overview', 'resources', 'features', 'technology', 'outcomes', 'learnings']
+      const sectionIds = ['overview', 'features', 'technology', 'outcomes', 'learnings']
       for (let id of sectionIds) {
         const element = document.getElementById(id)
         if (element) {
@@ -325,10 +367,11 @@ export default function ProjectDetail() {
           <h1>{project.title}</h1>
           <p className="hero-subtitle">{project.desc}</p>
           <p className="hero-tech"><strong>Technologies:</strong> {project.tech}</p>
+          {project.coauthors && <p className="hero-coauthors"><strong>Coauthors:</strong> {project.coauthors}</p>}
           <div className="hero-actions">
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn primary">
-                🔗 View on GitHub
+                View on GitHub
               </a>
             )}
             {project.download && (
@@ -383,19 +426,7 @@ export default function ProjectDetail() {
             <p>This project represents a significant milestone in my engineering career. The combination of hardware design and software implementation demonstrates my versatility in solving complex problems across multiple domains.</p>
           </section>
 
-          {/* Resources Section */}
-          <section id="resources" className="detail-section">
-            <h2>Resources</h2>
-            <p>Access to comprehensive project resources and documentation:</p>
-            <ul>
-              {project.github && <li><a href={project.github} target="_blank" rel="noopener noreferrer">📌 Source Code Repository on GitHub</a></li>}
-              <li>Technical Documentation and Reports</li>
-              <li>Design Files and Specifications</li>
-              <li>Research Papers and References</li>
-              {project.youtube && <li>Project Demonstration Videos</li>}
-            </ul>
-          </section>
-
+          
           {/* Features Section */}
           <section id="features" className="detail-section">
             <h2>Key Features</h2>

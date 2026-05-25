@@ -15,6 +15,8 @@ import PenduloImg from './src/public/models/pendulo.jpeg'
 import MultistageImg from './src/public/models/C2.png'
 import WorkshopMOBCOM from './src/public/models/Timing_Advance_Bie.png'
 import ProfilePic from './src/public/models/profile-pic.jpeg'
+import TUBerlin from './src/public/models/TUBerlin.png'
+import PaperSearch from './src/public/models/PaperSearch.png'
 
 function HomePage(){
   const aboutRef = useIntersectionObserver()
@@ -70,8 +72,8 @@ function HomePage(){
     {
       title: 'Vector-based Paper Search Agent',
       desc: 'Intelligent semantic search engine using vector embeddings and LLMs for academic papers.',
-      tech: 'Python, FastAPI, Vector DB, LLM',
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop',
+      tech: 'Python, Vector DB, LLM',
+      image: PaperSearch,
       categories: ['Deep Learning']
     },
     {
@@ -80,6 +82,13 @@ function HomePage(){
       tech: 'TensorFlow, Python, GIS, SQL',
       image: WorkshopMOBCOM,
       categories: ['Deep Learning', 'Signal Processing']
+    },
+    {
+      title: 'IoT Roadside Reboot System',
+      desc: 'Traffic sensors reboot system with 5G MQTT and Node-Red',
+      tech: 'Node-Red, MQTT, Communications',
+      image: TUBerlin,
+      categories: ['Signal Processing']
     }
   ]
 
@@ -163,28 +172,25 @@ function HomePage(){
           <h2>Awards, Achievements & Publications</h2>
           <div className="awards-grid">
             <div className="award-item">
-              <div className="award-icon">🏆</div>
               <h3>Outstanding Student Award</h3>
               <p className="award-org">University of Buenos Aires (UBA)</p>
-              <p className="award-desc">Recognition for exceptional academic performance throughout the Electronics Engineering program with a GPA of 8.66/10.</p>
+              <p className="award-desc">Recognition for international awards during the Electronics Engineering program at University of Buenos Aires.</p>
             </div>
-            <div className="award-item">
-              <div className="award-icon">🎓</div>
+            <div className="award-item">              
               <h3>DAAD Scholarship</h3>
               <p className="award-org">German Academic Exchange Service</p>
               <p className="award-desc">Full scholarship for study and research in Germany at Karlsruhe Institute of Technology (Oct 2023 - Oct 2024).</p>
             </div>
+            
             <div className="award-item">
-              <div className="award-icon">📄</div>
-              <h3>IEEE IROS 2025 Publication</h3>
-              <p className="award-org">Intelligent Robots and Systems</p>
-              <p className="award-desc">Co-authored paper on "Safe Social Navigation with Deep Reinforcement Learning" based on research at FZI.</p>
+              <h3>Distinguished Student</h3>
+              <p className="award-org">Cambridge IGCSE</p>
+              <p className="award-desc">Recognition for distinguished academic performance during the IGCSE examinations.</p>
             </div>
             <div className="award-item">
-              <div className="award-icon">🤖</div>
-              <h3>Reinforcement Learning Research</h3>
-              <p className="award-org">FZI Research Center</p>
-              <p className="award-desc">Achieved 1.3x higher rewards improvement and 60% collision reduction in novel scenarios using advanced PPO algorithms.</p>
+              <h3>IEEE IROS 2025 Publication</h3>
+              <p className="award-org">Intelligent Robots and Systems</p>
+              <p className="award-desc">Co-authored the paper"Safe Social Navigation with Deep Reinforcement Learning" based on research at FZI. The conference was held at Guangzhou, China.</p>
             </div>
           </div>
         </section>
@@ -193,8 +199,7 @@ function HomePage(){
           <h2>Contact</h2>
           <p>Let's connect! I'm always interested in discussing robotics, AI, electronics projects, and new opportunities.</p>
           <SocialLinks />
-          <p style={{marginTop: '16px'}}>You can reach me at <a href="mailto:mgomezvillafane@gmail.com">mgomezvillafane@gmail.com</a> or call +54 11 5331 0379</p>
-          <a href="mailto:mgomezvillafane@gmail.com" className="btn primary">Send me an email</a>
+          
         </section>
       </main>
 

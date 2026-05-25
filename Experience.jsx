@@ -13,7 +13,9 @@ export default function Experience(){
       location: 'Buenos Aires, Argentina',
       logo: 'https://www.tenaris.com/media/z0bal0tu/microsoftteams-image-8.png?v=1db50eb66c4c5f0',
       tasks: [
-        'Designed and developed robotic systems for automatic pipe quality testing',
+        'Designed and developed robotic systems for automatic pipe quality testing.',
+        'Implemented an automatic thread alignment algorithm for accurate measurement.',
+        'Developed signal processing algorithms to analyze three types of threads.'
       ]
     },
     {
@@ -37,8 +39,7 @@ export default function Experience(){
       location: 'Buenos Aires, Argentina',
       logo: DataEvo,
       tasks: [
-        'Automated data science workflows using Python',
-        'Optimized dashboards using Shiny'
+        'Automated data science workflows using Python and optimized dashboards using Shiny'
       ]
     },
     {
@@ -48,7 +49,7 @@ export default function Experience(){
       location: 'Buenos Aires, Argentina',
       logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQHaO2xvf4A9AA/company-logo_100_100/company-logo_100_100/0/1631315773744?e=1779321600&v=beta&t=YbWlhUNPwy1s94Ul2XYHrS4bR1uYM6nkoB5GF10Cf7k',
       tasks: [
-        'Developed and improved website features using HTML, CSS, JavaScript'
+        'Developed and improved website features using HTML, CSS, JavaScript.'
       ]
     }
   ]

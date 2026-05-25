@@ -11,6 +11,7 @@ const projectSlugs = {
   'Pendulum Control System': 'pendulum-control-system',
   'Vector-based Paper Search Agent': 'vector-based-paper-search',
   'Antenna Position Estimator with AI': 'antenna-position-estimator',
+  'IoT Roadside Reboot System': 'IoT-Traffic-Sensor-Reboot',
 }
 
 export default function ProjectCard({title, desc, tech, url, image, categories, shouldAnimate, animationIndex}){
