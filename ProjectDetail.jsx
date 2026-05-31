@@ -10,6 +10,7 @@ import MultistageImg from './src/public/models/C2.png'
 import AntennaAIImg from './src/public/models/Timing_Advance_Bie.png'
 import PaperSearchImg from './src/public/models/PaperSearch.png'
 import TUBerlinImg from './src/public/models/TUBerlin.png'
+import AstarFinished from './src/public/models/Astar_finished.jpeg'
 
 const projectsData = {
   'smartlock-intelligent-lock': {
@@ -37,19 +38,13 @@ const projectsData = {
       'Patent-pending design for smart lock mechanism',
       'Successfully integrated IoT connectivity'
     ],
-    learnings: [
-      'Full-stack development with React, Node.js, and MongoDB',
-      'IoT device programming and connectivity protocols',
-      'Security best practices for access control systems',
-      'Database design for real-time event logging',
-      'Hardware-software integration challenges'
-    ]
+    
   },
   'astar-orientation-estimation': {
     title: 'ASTAR - Orientation Estimation of Nanosatellites',
     desc: 'CubeSat attitude estimation using sensor fusion with multiple sensors for precise orientation.',
-    tech: 'Python, Sensor Fusion, Quaternions, Signal Processing',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=300&fit=crop',
+    tech: 'Python, Sensor Fusion, Signal Processing',
+    image: AstarFinished,
     github: 'https://github.com/mgvillafane/astar-orientation-estimation',
     coauthors: '',
     overview: 'ASTAR is an advanced attitude estimation system designed for CubeSat nanosatellites. It uses multi-sensor fusion algorithms to accurately determine the satellite\'s 3D orientation in space, critical for communication and payload operations. The system implements complementary filters and Kalman filters for robust estimation.',
@@ -68,14 +63,8 @@ const projectsData = {
       'Comprehensive documentation and test suite',
       'Contributing code to space research community',
       'Presented at aerospace engineering conferences'
-    ],
-    learnings: [
-      'Sensor fusion and Kalman filter theory',
-      'Quaternion mathematics for 3D rotations',
-      'Real-time control system implementation',
-      'CubeSat mission analysis and requirements',
-      'Signal processing in noisy environments'
     ]
+
   },
   'multistage-voltage-regulator': {
     title: 'Multistage Voltage Regulator',
@@ -92,28 +81,22 @@ const projectsData = {
     coauthors: 'Agustin Pessina, Ezequiel Rodriguez',
     overview: 'A sophisticated voltage regulation circuit implementing a 3-stage amplifier with active compensation networks. Designed for stable voltage output with minimal ripple and fast transient response. The circuit includes feedback compensation, short-circuit protection, and thermal management features.',
     features: [
-      'Three-stage amplification with active compensation',
+      'Two-stage amplification with active compensation',
       'Output voltage stability within 1% tolerance',
-      'Fast transient response (<100μs settling time)',
+      'Low dropout voltage',
       'Short-circuit current limiting protection',
-      'Thermal shutdown and overload detection',
+      'Overvoltage and undervoltage protection',
       'PCB layout optimized for signal integrity'
     ],
     outcomes: [
-      'Achieved stable +12V regulated output',
+      'Achieved Stable + regulated output',
       'Successfully fabricated and tested PCB',
       '3D model available for reference and manufacturing',
       'Comprehensive schematic and layout documentation',
       'Performance exceeds industry specifications',
       'Reusable design for future projects'
-    ],
-    learnings: [
-      'Advanced analog circuit design principles',
-      'Frequency compensation and stability analysis',
-      'PCB layout techniques for power electronics',
-      'LTSpice simulation and circuit verification',
-      'KiCAD workflow for professional design'
     ]
+
   },
   'high-frequency-amplifier': {
     title: 'High Frequency Amplifier',
@@ -138,14 +121,8 @@ const projectsData = {
       'Demonstrated excellent return loss characteristics',
       'Successfully integrated into test equipment',
       'Technical documentation and reference designs published'
-    ],
-    learnings: [
-      'RF circuit design principles and impedance matching',
-      'S-parameter analysis and network optimization',
-      'Keysight ADS professional tool proficiency',
-      'PCB design for high-frequency applications',
-      'Noise figure minimization techniques'
     ]
+
   },
   'robust-motion-planner': {
     title: 'Robust Motion Planner for Autonomous Robots',
@@ -170,14 +147,8 @@ const projectsData = {
       'Published research at IEEE IROS 2025',
       'Average planning time under 50ms per decision',
       'Comprehensive dataset of training scenarios'
-    ],
-    learnings: [
-      'Deep reinforcement learning theory and practice',
-      'PPO algorithm implementation and tuning',
-      'ROS robotics middleware and simulation',
-      'Reward shaping for learning stability',
-      'Domain randomization for robust learning'
     ]
+
   },
   'pendulum-control-system': {
     title: 'Pendulum Control System',
@@ -202,14 +173,8 @@ const projectsData = {
       'Comprehensive control analysis documentation',
       'Educational material for control theory students',
       'Open-source implementation widely used'
-    ],
-    learnings: [
-      'Classical and modern control theory principles',
-      'Real-time system programming with Arduino',
-      'Sensor fusion and signal filtering techniques',
-      'Stability analysis and Lyapunov methods',
-      'Practical challenges in hardware control'
     ]
+    
   },
   'vector-based-paper-search': {
     title: 'Vector-based Paper Search Agent',
@@ -234,14 +199,8 @@ const projectsData = {
       'API handles 100+ concurrent requests',
       'Integrable with academic workflows',
       'Community contributions and feedback incorporated'
-    ],
-    learnings: [
-      'Vector embeddings and similarity metrics',
-      'Large language models for natural language understanding',
-      'FastAPI for high-performance Python APIs',
-      'Vector database design and optimization',
-      'Information retrieval and ranking algorithms'
     ]
+
   },
   'antenna-position-estimator': {
     title: 'Antenna Position Estimator with AI',
@@ -266,14 +225,8 @@ const projectsData = {
       'Comprehensive training dataset created',
       'Integration with existing GIS platforms',
       'Technical publication in wireless communications journal'
-    ],
-    learnings: [
-      'Deep learning for signal processing and classification',
-      'CNN architecture design and optimization',
-      'Radio propagation modeling and simulation',
-      'GIS data handling and visualization',
-      'Real-world machine learning deployment challenges'
     ]
+
   },
 
   'IoT-Traffic-Sensor-Reboot': {
@@ -299,14 +252,8 @@ const projectsData = {
       'Comprehensive training dataset created',
       'Integration with existing GIS platforms',
       'Technical publication in wireless communications journal'
-    ],
-    learnings: [
-      'Deep learning for signal processing and classification',
-      'CNN architecture design and optimization',
-      'Radio propagation modeling and simulation',
-      'GIS data handling and visualization',
-      'Real-world machine learning deployment challenges'
     ]
+
   },
 }
 
@@ -328,7 +275,7 @@ export default function ProjectDetail() {
     { id: 'features', label: 'Features' },
     { id: 'technology', label: 'Technology' },
     { id: 'outcomes', label: 'Outcomes' },
-    { id: 'learnings', label: 'Learnings' },
+    
   ]
 
   const handleNavClick = (sectionId) => {
@@ -341,7 +288,7 @@ export default function ProjectDetail() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ['overview', 'features', 'technology', 'outcomes', 'learnings']
+      const sectionIds = ['overview', 'features', 'technology', 'outcomes']
       for (let id of sectionIds) {
         const element = document.getElementById(id)
         if (element) {
@@ -454,16 +401,7 @@ export default function ProjectDetail() {
             </ul>
           </section>
 
-          {/* Learnings Section */}
-          <section id="learnings" className="detail-section">
-            <h2>Key Learnings & Skills Developed</h2>
-            <ul>
-              {project.learnings && project.learnings.map((learning, idx) => (
-                <li key={idx}>{learning}</li>
-              ))}
-            </ul>
-          </section>
-
+          
           {/* YouTube Video Section - Only for Smartlock */}
           {project.youtube && (
             <section id="video" className="detail-section">

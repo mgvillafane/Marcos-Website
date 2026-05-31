@@ -17,6 +17,7 @@ import WorkshopMOBCOM from './src/public/models/Timing_Advance_Bie.png'
 import ProfilePic from './src/public/models/profile-pic.jpeg'
 import TUBerlin from './src/public/models/TUBerlin.png'
 import PaperSearch from './src/public/models/PaperSearch.png'
+import AstarFinished from './src/public/models/Astar_finished.jpeg'
 
 function HomePage(){
   const aboutRef = useIntersectionObserver()
@@ -30,65 +31,65 @@ function HomePage(){
     {
       title: 'Smartlock - Intelligent Lock',
       desc: 'IoT smart lock with online dashboard for access tracking and remote control.',
-      tech: 'React, Node.js, MongoDB',
+      tech: 'C++, Github, MQTT',
       image: SmartlockImg,
-      categories: ['Electronics', 'Automation']
+      categories: ['Electronics', 'Automation', 'Signal Processing']
     },
     {
       title: 'ASTAR - Orientation Estimation of Nanosatellites',
-      desc: 'CubeSat attitude estimation using sensor fusion with multiple sensors for precise orientation.',
-      tech: 'React Native, Firebase, Redux',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=500&h=300&fit=crop',
-      categories: ['Deep Learning', 'Signal Processing']
+      desc: 'CubeSat attitude estimation using fusion of data from magnetometer, light sensor and IMU.',
+      tech: 'Matlab, Github, LTspice,Kicad,FreeCAD,Arduino IDE',
+      image: AstarFinished,
+      categories: ['Electronics', 'Signal Processing']
     },
     {
       title: 'Multistage Voltage Regulator',
-      desc: '3-stage amplifier design with precise voltage regulation and compensation networks.',
-      tech: 'Vue.js, D3.js, Express',
+      desc: '5V and 3.3V voltage regulator for wide input voltage using Buck and LDO stages with frequency compensation .',
+      tech: 'LTSpice, Kicad',
       image: MultistageImg,
-      categories: ['Electronics', 'Signal Processing']
+      categories: ['Electronics']
     },
     {
       title: 'High Frequency Amplifier',
       desc: 'Broadband RF amplifier design optimized for MHz range applications.',
-      tech: 'Next.js, PostgreSQL, WebSocket',
+      tech: 'Kicad, ADS Electronics',
       image: RFAmpImg,
-      categories: ['Electronics', 'Signal Processing']
+      categories: ['Electronics']
     },
     {
       title: 'Robust Motion Planner for Autonomous Robots',
       desc: 'Reinforcement learning-based motion planning with collision avoidance for novel environments.',
-      tech: 'React, Stripe API, Django',
+      tech: 'Python, TensorFlow, Pytorch',
       image: LoopTestGif,
       categories: ['Deep Learning', 'Automation']
     },
     {
       title: 'Pendulum Control System',
-      desc: 'Advanced control system for inverted pendulum using PID and adaptive algorithms.',
-      tech: 'TypeScript, MySQL, Electron',
+      desc: 'Control system for pendulum using PID, PI, P and discrete controllers.',
+      tech: 'Matlab, FreeCAD, Arduino IDE',
       image: PenduloImg,
-      categories: ['Automation', 'Electronics']
+      categories: ['Automation', 'Electronics', 'Signal Processing']
     },
     {
       title: 'Vector-based Paper Search Agent',
-      desc: 'Intelligent semantic search engine using vector embeddings and LLMs for academic papers.',
-      tech: 'Python, Vector DB, LLM',
+      desc: 'Arxiv paper searcher using vector embeddings and generative AI.',
+      tech: 'Python, Vector DB',
       image: PaperSearch,
       categories: ['Deep Learning']
     },
     {
       title: 'Antenna Position Estimator with AI',
       desc: 'Neural network-based antenna localization using signal data and GIS integration.',
-      tech: 'TensorFlow, Python, GIS, SQL',
+      tech: 'Python',
       image: WorkshopMOBCOM,
       categories: ['Deep Learning', 'Signal Processing']
     },
     {
       title: 'IoT Roadside Reboot System',
       desc: 'Traffic sensors reboot system with 5G MQTT and Node-Red',
-      tech: 'Node-Red, MQTT, Communications',
+      tech: 'Node-Red, MQTT, Python',
       image: TUBerlin,
-      categories: ['Signal Processing']
+      categories: ['Signal Processing','Automation','Electronics']
     }
   ]
 
