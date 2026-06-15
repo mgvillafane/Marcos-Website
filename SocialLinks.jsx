@@ -6,7 +6,7 @@ export default function SocialLinks(){
   const socials = [
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/marcos-gomez-villafane',
+      url: 'https://www.linkedin.com/in/marcos-g%C3%B3mez-villafa%C3%B1e-b8b1261a5/',
       icon: <FaLinkedin size={24} />
     },
     {

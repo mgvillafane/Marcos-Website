@@ -47,7 +47,7 @@ export default function Experience(){
       role: 'Programming Intern',
       dates: 'Jan 2019 – Apr 2019',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQHaO2xvf4A9AA/company-logo_100_100/company-logo_100_100/0/1631315773744?e=1779321600&v=beta&t=YbWlhUNPwy1s94Ul2XYHrS4bR1uYM6nkoB5GF10Cf7k',
+      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQHaO2xvf4A9AA/company-logo_200_200/company-logo_200_200/0/1631315773744?e=1781740800&v=beta&t=min_xDzKR0apFLllIykTG18Bhldosnldl73HG07Rjbc',
       tasks: [
         'Developed and improved website features using HTML, CSS, JavaScript.'
       ]

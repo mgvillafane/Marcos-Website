@@ -43,26 +43,21 @@ const projectsData = {
   'astar-orientation-estimation': {
     title: 'ASTAR - Orientation Estimation of Nanosatellites',
     desc: 'CubeSat attitude estimation using sensor fusion with multiple sensors for precise orientation.',
-    tech: 'Python, Sensor Fusion, Signal Processing',
+    tech: 'Python, FreeCAD, Kicad, Matlab',
     image: AstarFinished,
     github: 'https://github.com/mgvillafane/astar-orientation-estimation',
     coauthors: '',
     overview: 'ASTAR is an advanced attitude estimation system designed for CubeSat nanosatellites. It uses multi-sensor fusion algorithms to accurately determine the satellite\'s 3D orientation in space, critical for communication and payload operations. The system implements complementary filters and Kalman filters for robust estimation.',
     features: [
-      'Multi-sensor fusion (gyroscope, magnetometer, sun sensor)',
-      'Real-time quaternion-based attitude representation',
-      'Complementary and Extended Kalman Filter implementations',
-      'Robust error handling for sensor noise',
-      'Efficient computation suitable for embedded systems',
-      'Simulation framework for validation'
+      'Multi-sensor fusion (IMU, magnetometer, light sensor)',
+      'TRIAD algorithm',
+      'Kalman Filter for noise reduction',
+      'Self-made PCB',
+      'Self-made light sensor'
+
     ],
     outcomes: [
-      'Achieved sub-degree attitude accuracy in simulations',
-      'Validated against CubeSat mission requirements',
-      'Computational efficiency suitable for onboard processors',
-      'Comprehensive documentation and test suite',
-      'Contributing code to space research community',
-      'Presented at aerospace engineering conferences'
+      'Working prototype',
     ]
 
   },
@@ -91,10 +86,9 @@ const projectsData = {
     outcomes: [
       'Achieved Stable + regulated output',
       'Successfully fabricated and tested PCB',
-      '3D model available for reference and manufacturing',
-      'Comprehensive schematic and layout documentation',
-      'Performance exceeds industry specifications',
-      'Reusable design for future projects'
+      'Low Dropout Voltage of 0.21V achieved',
+      'Efficiency of 99,13%',
+      'Working Current Foldback, OVLO and UVLO'
     ]
 
   },

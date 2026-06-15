@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Analytics } from "@vercel/analytics/react"
 import Header from './Header.jsx'
 import Hero from './Hero.jsx'
 import ProjectCard from './ProjectCard.jsx'
@@ -73,13 +74,13 @@ function HomePage(){
     {
       title: 'Vector-based Paper Search Agent',
       desc: 'Arxiv paper searcher using vector embeddings and generative AI.',
-      tech: 'Python, Vector DB',
+      tech: 'Python, Vector DB, LLMs',
       image: PaperSearch,
       categories: ['Deep Learning']
     },
     {
-      title: 'Antenna Position Estimator with AI',
-      desc: 'Neural network-based antenna localization using signal data and GIS integration.',
+      title: 'Antenna Position Estimator with ML',
+      desc: 'Estimation of antenna position using machine learning and signal intensity.',
       tech: 'Python',
       image: WorkshopMOBCOM,
       categories: ['Deep Learning', 'Signal Processing']
