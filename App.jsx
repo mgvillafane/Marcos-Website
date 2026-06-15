@@ -219,6 +219,7 @@ export default function App(){
         <Route path="/" element={<HomePage />} />
         <Route path="/project/:projectId" element={<ProjectDetail />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   )
 }
