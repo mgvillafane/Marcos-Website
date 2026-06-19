@@ -100,6 +100,11 @@ h2{color:#e8eef5;margin-bottom:16px}
 
 .about-text h2{
   margin-top:0;
+  font-size:2.15rem;
+}
+.about-text p{
+  margin-top:0;
+  font-size:1rem;
 }
 .hero{
   height:100vh;
@@ -534,7 +539,8 @@ h2{color:#e8eef5;margin-bottom:16px}
   }
   .about-image{
     width:300px;
-    height:300px;
+    height:350px;
+    object-fit: cover;
   }
   .hero-title{font-size:4rem}
   .typewriter-cursor{height:4rem}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import DataEvo from './src/public/models/DataEvo.png'
 import Tenaris from './src/public/models/Tenaris.png'
-
+import p4d from './src/public/models/p4dlogo.jfif'
 export default function Experience(){
   const [expanded, setExpanded] = useState(0)
 
@@ -47,7 +47,7 @@ export default function Experience(){
       role: 'Programming Intern',
       dates: 'Jan 2019 – Apr 2019',
       location: 'Buenos Aires, Argentina',
-      logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQHaO2xvf4A9AA/company-logo_200_200/company-logo_200_200/0/1631315773744?e=1781740800&v=beta&t=min_xDzKR0apFLllIykTG18Bhldosnldl73HG07Rjbc',
+      logo: p4d,
       tasks: [
         'Developed and improved website features using HTML, CSS, JavaScript.'
       ]
