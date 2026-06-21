@@ -80,7 +80,7 @@ const projectsData = {
       'Output voltage stability within 1% tolerance',
       'Low dropout voltage',
       'Short-circuit current limiting protection',
-      'Overvoltage and undervoltage protection',
+      'Overvoltage and Undervoltage protection (OVLO and UVLO)',
       'PCB layout optimized for signal integrity'
     ],
     outcomes: [
@@ -130,122 +130,94 @@ const projectsData = {
       'Deep reinforcement learning using Proximal Policy Optimization (PPO)',
       'Real-time collision avoidance in dynamic environments',
       'Generalization to unseen obstacle configurations',
-      'Smooth trajectory generation without jerky movements',
-      'Scalable to multi-robot coordination',
-      'Sim-to-real transfer capabilities'
+      'Uncertainty estimation with two estimation methods: MC-Dropout and Deep Ensembles',
+      'Control algorithm for policy switching and collision avoidance',
     ],
     outcomes: [
-      '1.3x higher reward improvement on novel scenarios',
-      '60% collision reduction compared to baseline planners',
-      'Successfully tested on multiple robot platforms',
+      'Over 60% collision reduction in 3 novel scenarios',
       'Published research at IEEE IROS 2025',
-      'Average planning time under 50ms per decision',
-      'Comprehensive dataset of training scenarios'
+      'Disentangled uncertainty into epistemic predictive and aleatoric uncertainty',
+      'Implemented policy switching based on uncertainty estimation',
+      'Identified sources of uncertainty during the motion planning of the DRL policy'
     ]
 
   },
   'pendulum-control-system': {
     title: 'Pendulum Control System',
-    desc: 'Advanced control system for inverted pendulum using PID and adaptive algorithms.',
-    tech: 'Python, Control Theory, Real-time Systems, Arduino',
+    desc: 'Control system for stabilizing pendulum using 3 types of control algorithms.',
+    tech: 'Control Theory, IMU, MATLAB, Arduino',
     image: PenduloImg,
     github: 'https://github.com/mgvillafane/pendulum-control-system',
-    coauthors: '',
-    overview: 'A sophisticated control system for the inverted pendulum problem, implementing both classical PID control and advanced adaptive algorithms. The system includes real-time hardware control, sensor feedback processing, and visualization of system dynamics.',
+    coauthors: 'Alexis Romero, Manuel Rodriguez',
+    overview: 'A control system for the pendulum problem, implementing both classical P, PI and PID control as well as discrete control algorithms. The system includes real-time hardware control, sensor feedback processing, and visualization of system dynamics with data from an IMU.',
     features: [
-      'PID controller with automatic tuning',
-      'State-space model and Linear Quadratic Regulator (LQR)',
-      'Adaptive control algorithms for parameter variations',
-      'Real-time sensor fusion from accelerometer and encoder',
-      'Safety constraints and emergency stop mechanisms',
-      'Live data visualization and logging'
+      'P, PI and PID controllers',
+      'Fast control against system perturbations',
+      'Real-time sensor fusion from accelerometer and gyroscope',
+      'Live data visualization',
     ],
     outcomes: [
-      'Successfully balanced inverted pendulum for 5+ minutes',
-      'Robust performance across varying pendulum masses',
-      'Response time under 100ms to disturbances',
-      'Comprehensive control analysis documentation',
-      'Educational material for control theory students',
-      'Open-source implementation widely used'
+      'Robust performance with several types of controllers',
+      'Response time under 1s to disturbances',
+      'Comprehensive control analysis documentation, analyzing the performance of different controllers',
+      'Open-source implementation'
     ]
     
   },
   'vector-based-paper-search': {
     title: 'Vector-based Paper Search Agent',
-    desc: 'Intelligent semantic search engine using vector embeddings and LLMs for academic papers.',
+    desc: 'Semantic search agent that uses vector embeddings and LLMs to search academic papers in Arxiv.',
     tech: 'Python, FastAPI, Vector Databases, OpenAI API, Embeddings',
     image: PaperSearchImg,
     github: 'https://github.com/mgvillafane/vector-based-paper-search',
     coauthors: '',
-    overview: 'An intelligent research assistant that uses semantic search and large language models to find and summarize academic papers. The system converts paper abstracts and content into vector embeddings, enabling semantic similarity search far beyond keyword matching.',
+    overview: 'Implemented for 5-day Kaggle genAI competition. An intelligent research assistant that uses semantic search and large language models to find and summarize academic papers. The system converts paper abstracts and content into vector embeddings, enabling semantic similarity search.',
     features: [
-      'Semantic search using vector embeddings (OpenAI Embeddings)',
-      'Vector database for efficient similarity search',
+      'Semantic search using vector embeddings',
+      'Arxiv vector database for similarity search',
       'LLM-powered paper summarization and Q&A',
-      'FastAPI backend with async operations',
-      'Multi-language support for international papers',
-      'Citation network analysis and relationship discovery'
     ],
     outcomes: [
-      'Successfully indexed 10,000+ research papers',
-      'Semantic search accuracy 3x better than keyword search',
-      'Average search response time under 500ms',
-      'API handles 100+ concurrent requests',
-      'Integrable with academic workflows',
-      'Community contributions and feedback incorporated'
+      'Successfully tested the agent and filtered papers with description and keywords',
     ]
 
   },
   'antenna-position-estimator': {
-    title: 'Antenna Position Estimator with AI',
-    desc: 'Neural network-based antenna localization using signal data and GIS integration.',
-    tech: 'TensorFlow, Python, GIS, Signal Processing, CNNs',
+    title: 'Antenna Position Estimator with Differential Evolution',
+    desc: 'Antenna localization using signal intensity data and differential evolution optimization algorithm.',
+    tech: 'Python, Signal Processing',
     image: AntennaAIImg,
     github: 'https://github.com/mgvillafane/antenna-position-estimator',
-    coauthors: '',
-    overview: 'An AI-powered system that estimates antenna positions from received signal strength indicators (RSSI) and other signal characteristics. Uses convolutional neural networks trained on real-world signal propagation data to achieve accurate geolocation estimates.',
+    coauthors: 'Morris Priester',
+    overview: 'Based on signal intensity from the antenna, the algorithm uses differential evolution to localize the antenna position.',
     features: [
-      'Convolutional Neural Network for signal pattern recognition',
-      'Signal preprocessing and feature engineering',
-      'GIS integration for geographic visualization',
-      'Real-time inference under 100ms latency',
-      'Confidence scoring for position estimates',
-      'Adaptation to changing propagation conditions'
+      'Differential Evolution',
+      'Vienna Simulation',
     ],
     outcomes: [
-      'Achieved 95% accuracy within 500m in urban environments',
-      'Successfully deployed for site survey analysis',
-      'Reduced manual antenna positioning time by 70%',
-      'Comprehensive training dataset created',
-      'Integration with existing GIS platforms',
-      'Technical publication in wireless communications journal'
+      'Achieved high precision with limited intensity data',
+    
     ]
 
   },
 
   'IoT-Traffic-Sensor-Reboot': {
-    title: 'Antenna Position Estimator with AI',
-    desc: 'Neural network-based antenna localization using signal data and GIS integration.',
-    tech: 'TensorFlow, Python, GIS, Signal Processing, CNNs',
+    title: 'IOT-Based Dashboard and Reboot System for Roadside Traffic Sensors',
+    desc: 'A system for monitoring and managing roadside traffic sensors using IoT technologies.',
+    tech: 'Python, IoT, MQTT, C++',
     image: TUBerlinImg,
     github: 'https://github.com/mgvillafane/antenna-position-estimator',
     coauthors: '',
-    overview: 'An AI-powered system that estimates antenna positions from received signal strength indicators (RSSI) and other signal characteristics. Uses convolutional neural networks trained on real-world signal propagation data to achieve accurate geolocation estimates.',
+    overview: 'A system for monitoring and managing roadside traffic sensors using IoT technologies. The system includes a dashboard for real-time monitoring of sensor status, a hardware interface for remote rebooting of sensors, and an automated alert system for sensor failures. ',
     features: [
-      'Convolutional Neural Network for signal pattern recognition',
-      'Signal preprocessing and feature engineering',
-      'GIS integration for geographic visualization',
-      'Real-time inference under 100ms latency',
-      'Confidence scoring for position estimates',
-      'Adaptation to changing propagation conditions'
+      'Dashboard for real-time monitoring of traffic sensor status',
+      'Hardware interface for remote rebooting of roadside sensors',
+      'Automated alert system for sensor failures',
+      'Integration with 5G networks',
     ],
     outcomes: [
-      'Achieved 95% accuracy within 500m in urban environments',
-      'Successfully deployed for site survey analysis',
-      'Reduced manual antenna positioning time by 70%',
-      'Comprehensive training dataset created',
-      'Integration with existing GIS platforms',
-      'Technical publication in wireless communications journal'
+      'Successful hardware rebooting of failing roadside traffic sensors',
+      'Created a scalable dashboard for monitoring sensor status and gathering data',
     ]
 
   },
