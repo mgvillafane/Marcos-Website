@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import SmartlockImg from './src/public/models/Smartlock.png'
@@ -11,6 +11,8 @@ import AntennaAIImg from './src/public/models/Timing_Advance_Bie.png'
 import PaperSearchImg from './src/public/models/PaperSearch.png'
 import TUBerlinImg from './src/public/models/TUBerlin.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
+import multistageModelUrl from './src/public/models/tp-c2.glb?url'
+import multistageDownloadUrl from './src/public/models/tp-c2.stl?url'
 
 const projectsData = {
   'smartlock-intelligent-lock': {
@@ -68,7 +70,7 @@ const projectsData = {
     image: MultistageImg,
     github: 'https://github.com/mgvillafane/multistage-voltage-regulator',
     download: {
-      url: '/models/tp-c2.stl',
+      url: multistageDownloadUrl,
       label: 'Download 3D Model (.STL)',
       filename: 'tp-c2.stl',
     },
@@ -223,8 +225,6 @@ const projectsData = {
   },
 }
 
-const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-
 export default function ProjectDetail() {
   const { projectId } = useParams()
   const [activeSection, setActiveSection] = React.useState('overview')
@@ -248,7 +248,7 @@ export default function ProjectDetail() {
     setActiveSection(sectionId)
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
     }
   }
 
@@ -273,6 +273,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="project-detail">
+      <div className="project-back"><Link className="btn" to="/#projects">&#8592; All projects</Link></div>
       {/* Hero Section with Image */}
       <div className="project-hero">
         <img src={project.image} alt={project.title} className="hero-image" />
@@ -375,7 +376,7 @@ export default function ProjectDetail() {
               <div className="video-container">
                 <iframe
                   width="100%"
-                  height="500"
+                  loading="lazy"
                   src={`https://www.youtube.com/embed/${project.youtube.split('v=')[1]}`}
                   title="Project Demo"
                   frameBorder="0"
@@ -395,6 +396,6 @@ export default function ProjectDetail() {
 
 
 function Model() {
-  const { scene } = useGLTF("../src/public/models/tp-c2.glb");
+  const { scene } = useGLTF(multistageModelUrl);
   return <primitive object={scene} scale={1} />;
 }

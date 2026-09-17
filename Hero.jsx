@@ -1,28 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ChromaBG from './ChromaBG.jsx'
 
 export default function Hero(){
-  const containerRef = useRef(null)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [displayedText, setDisplayedText] = useState('')
   const fullName = 'Marcos Gomez Villafañe'
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect()
-        const x = (e.clientX - rect.left) / rect.width
-        const y = (e.clientY - rect.top) / rect.height
-        setMousePos({ x, y })
-      }
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   // Typewriter effect
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplayedText(fullName)
+      return
+    }
     let index = 0
     const interval = setInterval(() => {
       if (index < fullName.length) {
@@ -37,16 +25,16 @@ export default function Hero(){
   }, [])
 
   return (
-    <section className="hero" ref={containerRef}>
-      <ChromaBG style="Liquid" />
+    <section id="hero" className="hero">
+      <ChromaBG />
       
       <div className="hero-content">
         <h1 className="hero-title">{displayedText}<span className="typewriter-cursor"></span></h1>
         <p className="hero-subtitle">Electronics Engineer</p>
-        <div className="scroll-hint">
+        <a className="scroll-hint" href="#about">
           <span>Scroll down</span>
-          <div className="scroll-arrow">↓</div>
-        </div>
+          <span className="scroll-arrow" aria-hidden="true">&#8595;</span>
+        </a>
       </div>
     </section>
   )

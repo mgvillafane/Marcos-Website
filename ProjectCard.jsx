@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SmartlockImg from './src/public/models/Smartlock.png'
 
 const projectSlugs = {
   'Smartlock - Intelligent Lock': 'smartlock-intelligent-lock',
@@ -10,17 +9,17 @@ const projectSlugs = {
   'Robust Motion Planner for Autonomous Robots': 'robust-motion-planner',
   'Pendulum Control System': 'pendulum-control-system',
   'Vector-based Paper Search Agent': 'vector-based-paper-search',
-  'Antenna Position Estimator with AI': 'antenna-position-estimator',
+  'Antenna Position Estimator with ML': 'antenna-position-estimator',
   'IoT Roadside Reboot System': 'IoT-Traffic-Sensor-Reboot',
 }
 
-export default function ProjectCard({title, desc, tech, url, image, categories, shouldAnimate, animationIndex}){
+export default function ProjectCard({title, desc, tech, image, categories}){
   const projectSlug = projectSlugs[title] || title.toLowerCase().replace(/\s+/g, '-')
   
   return (
     <article className="project-card">
       <div className="project-image-wrapper">
-        <img src={image} alt={title} className="project-image" />
+        <img src={image} alt={title} className="project-image" loading="lazy" decoding="async" />
       </div>
       <div className="project-content">
         <h3>{title}</h3>

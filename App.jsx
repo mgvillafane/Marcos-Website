@@ -7,7 +7,6 @@ import ProjectCard from './ProjectCard.jsx'
 import Experience from './Experience.jsx'
 import Education from './Education.jsx'
 import SocialLinks from './SocialLinks.jsx'
-import ProjectDetail from './ProjectDetail.jsx'
 import useIntersectionObserver from './useIntersectionObserver.js'
 import SmartlockImg from './src/public/models/Smartlock.png'
 import RFAmpImg from './src/public/models/RF amplifier.jpg'
@@ -20,13 +19,21 @@ import TUBerlin from './src/public/models/TUBerlin.png'
 import PaperSearch from './src/public/models/PaperSearch.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
 
+const ProjectDetail = React.lazy(() => import('./ProjectDetail.jsx'))
+
 function HomePage(){
   const aboutRef = useIntersectionObserver()
   const experienceRef = useIntersectionObserver()
   const educationRef = useIntersectionObserver()
   const projectsRef = useIntersectionObserver()
+  const awardsRef = useIntersectionObserver()
   const contactRef = useIntersectionObserver()
   const [selectedCategory, setSelectedCategory] = React.useState('All')
+
+  React.useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (id) document.getElementById(id)?.scrollIntoView({ behavior: 'instant' })
+  }, [])
 
   const projectsList = [
     {
@@ -108,25 +115,18 @@ function HomePage(){
       <main className="container">
         <section id="about" className="card fade-section" ref={aboutRef}>
           <div className="about-content">
-            <img src={ProfilePic} alt="My photo" className="about-image" />
+            <img src={ProfilePic} alt="Marcos Gomez Villafa&#241;e" className="about-image" width="144" height="144" loading="lazy" decoding="async" />
+            <div className="about-heading">
+              <p className="eyebrow">A little about me</p>
+              <h2>Engineering ideas into reality.</h2>
+              <p className="about-focus">Robotics &middot; AI &middot; Electronics</p>
+            </div>
             <div className="about-text">
-              <h2>About me</h2>
-              <p className="lead">Electronics Engineer passionate about robotics, AI, and innovation.</p>
-              <p>I am an Electronics Engineer with strong expertise in reinforcement learning, robotics, and hardware design. Currently working at Techint Group (Tenaris) on innovative robotic systems for industrial applications.</p>
-              <p>With experience in both research and industry, I've developed solutions ranging from IoT smart locks to advanced motion planning algorithms for autonomous robots. I'm passionate about solving complex engineering problems through a combination of hardware design and intelligent software.</p>
-              
+              <p>I'm Marcos, an Electronics Engineer working at the intersection of robotics, reinforcement learning, and hardware design.</p>
+              <p>At Techint Group (Tenaris), I develop robotic systems for industrial applications. My work spans research and industry, from IoT smart locks to motion planning for autonomous robots.</p>
+              <a className="about-project-link" href="#projects">Explore my projects <span aria-hidden="true">&#8599;</span></a>
             </div>
           </div>
-        </section>
-
-        <section id="experience" className="card fade-section" ref={experienceRef}>
-          <h2>Experience</h2>
-          <Experience />
-        </section>
-
-        <section id="education" className="card fade-section" ref={educationRef}>
-          <h2>Education</h2>
-          <Education />
         </section>
 
         <section id="projects" className="card fade-section" ref={projectsRef}>
@@ -139,6 +139,7 @@ function HomePage(){
                 <button
                   key={category}
                   className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
+                  aria-pressed={selectedCategory === category}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -149,13 +150,12 @@ function HomePage(){
 
           {/* Projects Grid */}
           <div className="projects-grid">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <ProjectCard 
                 key={project.title}
                 title={project.title}
                 desc={project.desc}
                 tech={project.tech}
-                url="#"
                 image={project.image}
                 categories={project.categories}
               />
@@ -170,7 +170,17 @@ function HomePage(){
           )}
         </section>
 
-        <section id="awards" className="card fade-section" ref={contactRef}>
+        <section id="experience" className="card fade-section" ref={experienceRef}>
+          <h2>Experience</h2>
+          <Experience />
+        </section>
+
+        <section id="education" className="card fade-section" ref={educationRef}>
+          <h2>Education</h2>
+          <Education />
+        </section>
+
+        <section id="awards" className="card fade-section" ref={awardsRef}>
           <h2>Awards, Achievements & Publications</h2>
           <div className="awards-grid">
             <div className="award-item">
@@ -217,7 +227,11 @@ export default function App(){
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/project/:projectId" element={<ProjectDetail />} />
+        <Route path="/project/:projectId" element={
+          <React.Suspense fallback={<p className="container" role="status">Loading project...</p>}>
+            <ProjectDetail />
+          </React.Suspense>
+        } />
       </Routes>
       <Analytics />
     </BrowserRouter>

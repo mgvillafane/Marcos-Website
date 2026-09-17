@@ -9,7 +9,7 @@ The following features have been successfully implemented:
 - **Full Localization:** The entire application has been translated into English, including metadata and SEO components.
 - **Dynamic Header:** A responsive navigation bar with scroll-spy functionality that highlights the active section.
 - **Hero Section:** Includes a liquid chroma background effect and a smooth typewriter animation for the name.
-- **Immersive Backgrounds:** Multiple premium background components (ChromaBG, CosmicLines, MeshBackground, WavesBackground) for a high-end visual feel.
+- **Hero Background:** Liquid background powered by Unicorn Studio through `ChromaBG`.
 - **Project Showcase:** A grid-based project gallery using `ProjectCard` components with hover effects and technology tags.
 - **Experience & Education:** Interactive accordion-style lists to showcase professional history and academic achievements.
 - **Performance Optimized:** Built with Vite for ultra-fast HMR and optimized asset loading.
@@ -59,7 +59,7 @@ To run this project locally:
     ```
 2.  Install dependencies:
     ```bash
-    npm install
+    npm ci
     ```
 3.  Start the development server:
     ```bash
@@ -72,3 +72,9 @@ To run this project locally:
 
 ---
 Developed by **Marcos Gomez Villafañe**
+
+## Repository contents
+
+Only source files and assets used by the site are tracked. Install dependencies with `npm ci`; regenerate production output with `npm run build`. The `node_modules/`, `dist/`, local environment files, and `.vercel/` directories are ignored.
+
+The active GLB model and STL download use Vite asset imports so they are included in production builds.

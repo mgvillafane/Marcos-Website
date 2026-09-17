@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import DataEvo from './src/public/models/DataEvo.png'
-import Tenaris from './src/public/models/Tenaris.png'
 import p4d from './src/public/models/p4dlogo.jfif'
 export default function Experience(){
   const [expanded, setExpanded] = useState(0)
@@ -60,6 +59,7 @@ export default function Experience(){
         <div key={idx} className="experience-accordion">
           <button
             className={`accordion-header ${expanded === idx ? 'active' : ''}`}
+            aria-expanded={expanded === idx}
             onClick={() => setExpanded(expanded === idx ? -1 : idx)}
           >
             <div className="header-content">

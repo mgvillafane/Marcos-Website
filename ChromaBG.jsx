@@ -1,19 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 
-export default function ChromaBG({ bgStyle = 'Liquid' }){
+export default function ChromaBG(){
   const elementRef = useRef(null)
 
-  const projectIdMap = {
-    'Liquid': 'lHlDvoJDIXCxxXVqTNOC',
-    'Folds': 'YnADGzDD7LGB9cUocyyN',
-    'Smoke': 'ezEDNzFtrAgm8yCUWUeX',
-    'Flow': 'wYI4YirTR5lrja86ArSY',
-    'Pixel': 'rJ39y9Nnyz3cJooDtmNM',
-    'ASCII': 'HJKVa10sftexJ7OgsOnU'
-  }
-
   useEffect(() => {
-    const projectId = projectIdMap[bgStyle] || projectIdMap['Liquid']
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const projectId = 'lHlDvoJDIXCxxXVqTNOC'
 
     // Load Unicorn Studio script
     const loadUnicornStudio = () => {
@@ -50,7 +42,7 @@ export default function ChromaBG({ bgStyle = 'Liquid' }){
         window.UnicornStudio.destroy?.()
       }
     }
-  }, [bgStyle])
+  }, [])
 
   return (
     <div

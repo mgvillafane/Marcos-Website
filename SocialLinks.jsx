@@ -45,6 +45,7 @@ export default function SocialLinks(){
           rel="noopener noreferrer"
           className="social-icon"
           title={social.name}
+          aria-label={social.name}
         >
           {social.icon}
         </a>

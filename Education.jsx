@@ -57,6 +57,7 @@ export default function Education(){
         <div key={idx} className="experience-accordion">
           <button
             className={`accordion-header ${expanded === idx ? 'active' : ''}`}
+            aria-expanded={expanded === idx}
             onClick={() => setExpanded(expanded === idx ? -1 : idx)}
           >
             <div className="header-content">

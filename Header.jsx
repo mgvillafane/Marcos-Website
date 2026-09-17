@@ -1,52 +1,49 @@
 import React, { useEffect, useState } from 'react'
 
+const sections = ['about', 'projects', 'experience', 'education', 'awards', 'contact']
+
 export default function Header(){
-  const [activeSection, setActiveSection] = React.useState('hero')
+  const [activeSection, setActiveSection] = useState('hero')
   const [isVisible, setIsVisible] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id)
-    if (element){
-      element.scrollIntoView({ behavior: 'smooth' })
-      setActiveSection(id)
-    }
-  }
-
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
-      // Mostrar navbar después de scrollear un poco
       setIsVisible(window.scrollY > 100)
-      
-      const sections = ['about', 'experience', 'education',  'projects', 'awards', 'contact']
-      for (const section of sections){
-        const element = document.getElementById(section)
-        if (element){
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 200){
-            setActiveSection(section)
-          }
-        }
+      let current = 'hero'
+      for (const id of sections) {
+        const element = document.getElementById(id)
+        if (element && element.getBoundingClientRect().top <= 200) current = id
       }
+      setActiveSection(current)
     }
-
-    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <header className={`site-header ${isVisible ? 'visible' : ''}`}>
-      <nav className="nav container">
-        <div className="logo-initials">MGV</div>
-        <ul className="nav-links">
-          <li><a onClick={() => scrollToSection('about')} className={activeSection === 'about' ? 'active' : ''}>About</a></li>
-          <li><a onClick={() => scrollToSection('experience')} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
-          <li><a onClick={() => scrollToSection('education')} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
-          <li><a onClick={() => scrollToSection('projects')} className={activeSection === 'projects' ? 'active' : ''}>Projects</a></li>
-          <li><a onClick={() => scrollToSection('awards')} className={activeSection === 'awards' ? 'active' : ''}>Awards</a></li>
-          <li><a onClick={() => scrollToSection('contact')} className={`cta ${activeSection === 'contact' ? 'active' : ''}`}>Contact</a></li>
+      <nav className="nav container" aria-label="Main navigation" onKeyDown={event => {
+        if (event.key === 'Escape') {
+          setMenuOpen(false)
+          event.currentTarget.querySelector('.menu-toggle').focus()
+        }
+      }}>
+        <a className="logo-initials" href="#hero" aria-label="Back to top" onClick={() => setMenuOpen(false)}>MGV</a>
+        <button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? 'Close' : 'Menu'} <span aria-hidden="true">{menuOpen ? '\u00d7' : '\u2630'}</span>
+        </button>
+        <ul id="main-navigation" className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
+          {sections.map(id => (
+            <li key={id}>
+              <a href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} className={`${id === 'contact' ? 'cta ' : ''}${activeSection === id ? 'active' : ''}`} onClick={() => { setActiveSection(id); setMenuOpen(false) }}>
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
   )
 }
-
