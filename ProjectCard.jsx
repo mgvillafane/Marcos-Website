@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const projectSlugs = {
-  'Smartlock - Intelligent Lock': 'smartlock-intelligent-lock',
+  'Smartlock - An IoT Wi-Fi Doorlock': 'smartlock-intelligent-lock',
   'ASTAR - Orientation Estimation of Nanosatellites': 'astar-orientation-estimation',
   'Multistage Voltage Regulator': 'multistage-voltage-regulator',
   'High Frequency Amplifier': 'high-frequency-amplifier',
   'Robust Motion Planner for Autonomous Robots': 'robust-motion-planner',
   'Pendulum Control System': 'pendulum-control-system',
   'Vector-based Paper Search Agent': 'vector-based-paper-search',
-  'Antenna Position Estimator with ML': 'antenna-position-estimator',
+  'Cellular Base-Station Location Estimation': 'antenna-position-estimator',
   'IoT Roadside Reboot System': 'IoT-Traffic-Sensor-Reboot',
 }
 

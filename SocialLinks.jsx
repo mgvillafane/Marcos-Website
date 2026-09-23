@@ -20,7 +20,7 @@ export default function SocialLinks(){
     },
     {
       name: 'Google Scholar',
-      url: 'https://scholar.google.com/citations?user=55F5PJYAAAAJ&hl=es',
+      url: 'https://scholar.google.com/citations?user=55F5PJYAAAAJ&hl=en',
       icon: <SiGooglescholar size={24} />
     },
     {

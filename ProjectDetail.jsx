@@ -1,7 +1,5 @@
 import React, { Suspense } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
 import SmartlockImg from './src/public/models/Smartlock.png'
 import RFAmpImg from './src/public/models/RF amplifier.jpg'
 import LoopTestGif from './src/public/models/loop_final_test.gif'
@@ -11,16 +9,17 @@ import AntennaAIImg from './src/public/models/Timing_Advance_Bie.png'
 import PaperSearchImg from './src/public/models/PaperSearch.png'
 import TUBerlinImg from './src/public/models/TUBerlin.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
-import multistageModelUrl from './src/public/models/tp-c2.glb?url'
 import multistageDownloadUrl from './src/public/models/tp-c2.stl?url'
+
+const ModelViewer = React.lazy(() => import('./ModelViewer.jsx'))
 
 const projectsData = {
   'smartlock-intelligent-lock': {
-    title: 'Smartlock - Intelligent Lock',
-    desc: 'IoT smart lock with online dashboard for access tracking and remote control.',
+    title: 'Smartlock - An IoT Wi-Fi Doorlock',
+    desc: 'C++ IoT smart lock with RFID, keypad, Wi-Fi connectivity, and a dashboard for real-time access monitoring.',
     tech: 'React, Node.js, MongoDB',
     image: SmartlockImg,
-    github: 'https://github.com/mgvillafane/smartlock-intelligent-lock',
+    github: 'https://github.com/mgvillafane/SE_TP_Smartlock',
     youtube: 'https://www.youtube.com/watch?v=X5LYxJknXuw',
     coauthors: '',
     overview: 'An intelligent IoT lock system that combines hardware design with web technologies to provide secure, remote-controlled access management. The system features real-time access tracking, user authentication, and a comprehensive dashboard for monitoring lock activities.',
@@ -45,9 +44,9 @@ const projectsData = {
   'astar-orientation-estimation': {
     title: 'ASTAR - Orientation Estimation of Nanosatellites',
     desc: 'CubeSat attitude estimation using sensor fusion with multiple sensors for precise orientation.',
-    tech: 'Python, FreeCAD, Kicad, Matlab',
+    tech: 'Python, FreeCAD, LTspice, MATLAB',
     image: AstarFinished,
-    github: 'https://github.com/mgvillafane/astar-orientation-estimation',
+    github: 'https://github.com/mgvillafane/ASTAR',
     coauthors: '',
     overview: 'ASTAR is an advanced attitude estimation system designed for CubeSat nanosatellites. It uses multi-sensor fusion algorithms to accurately determine the satellite\'s 3D orientation in space, critical for communication and payload operations. The system implements complementary filters and Kalman filters for robust estimation.',
     features: [
@@ -66,9 +65,9 @@ const projectsData = {
   'multistage-voltage-regulator': {
     title: 'Multistage Voltage Regulator',
     desc: '3-stage amplifier design with precise voltage regulation and compensation networks.',
-    tech: 'KiCAD, LTSpice, PCB Design, Analog Electronics',
+    tech: 'KiCad, LTspice, PCB Design, Analog Electronics',
     image: MultistageImg,
-    github: 'https://github.com/mgvillafane/multistage-voltage-regulator',
+    github: '',
     download: {
       url: multistageDownloadUrl,
       label: 'Download 3D Model (.STL)',
@@ -99,7 +98,7 @@ const projectsData = {
     desc: 'Broadband RF amplifier design optimized for MHz range applications.',
     tech: 'Keysight ADS, PCB Design, RF Electronics, Simulation',
     image: RFAmpImg,
-    github: 'https://github.com/mgvillafane/high-frequency-amplifier',
+    github: '',
     coauthors: '',
     overview: 'A high-performance RF amplifier designed for broadband operation in the MHz frequency range. Features include impedance matching networks, gain optimization, and noise figure minimization. The design was validated using Keysight ADS simulations and prototype testing.',
     features: [
@@ -125,7 +124,7 @@ const projectsData = {
     desc: 'Reinforcement learning-based motion planning with collision avoidance for novel environments.',
     tech: 'PyTorch, ROS, Gazebo, Deep Reinforcement Learning',
     image: LoopTestGif,
-    github: 'https://github.com/mgvillafane/robust-motion-planner',
+    github: '',
     coauthors: '',
     overview: 'An advanced motion planning system for autonomous robots using deep reinforcement learning (PPO algorithm). The system learns to navigate complex environments while avoiding collisions and optimizing for smooth, efficient paths. Trained in simulation with transfer to real robots.',
     features: [
@@ -149,7 +148,7 @@ const projectsData = {
     desc: 'Control system for stabilizing pendulum using 3 types of control algorithms.',
     tech: 'Control Theory, IMU, MATLAB, Arduino',
     image: PenduloImg,
-    github: 'https://github.com/mgvillafane/pendulum-control-system',
+    github: 'https://github.com/mgvillafane/TP3_Labo_control',
     coauthors: 'Alexis Romero, Manuel Rodriguez',
     overview: 'A control system for the pendulum problem, implementing both classical P, PI and PID control as well as discrete control algorithms. The system includes real-time hardware control, sensor feedback processing, and visualization of system dynamics with data from an IMU.',
     features: [
@@ -167,31 +166,34 @@ const projectsData = {
     
   },
   'vector-based-paper-search': {
-    title: 'Vector-based Paper Search Agent',
-    desc: 'Semantic search agent that uses vector embeddings and LLMs to search academic papers in Arxiv.',
-    tech: 'Python, FastAPI, Vector Databases, OpenAI API, Embeddings',
+    title: 'ArXiv Research Assistant: Semantic Paper Search and RAG',
+    desc: 'Semantic search and retrieval-augmented generation for arXiv research papers.',
+    tech: 'Python, Google Gemini API (gemini-2.0-flash), text-embedding-004, ChromaDB, PyMuPDF, RAG',
     image: PaperSearchImg,
-    github: 'https://github.com/mgvillafane/vector-based-paper-search',
+    github: 'https://github.com/mgvillafane/Google-GenAI-Competition',
     coauthors: '',
-    overview: 'Implemented for 5-day Kaggle genAI competition. An intelligent research assistant that uses semantic search and large language models to find and summarize academic papers. The system converts paper abstracts and content into vector embeddings, enabling semantic similarity search.',
+    overview: 'A research assistant built for a five-day Google GenAI competition. The pipeline embeds arXiv title and abstract pairs with Google\'s text-embedding-004 model, stores them in ChromaDB, and uses Gemini 2.0 Flash to answer questions grounded in retrieved papers.',
     features: [
       'Semantic search using vector embeddings',
-      'Arxiv vector database for similarity search',
-      'LLM-powered paper summarization and Q&A',
+      '10,000 arXiv papers indexed into a ChromaDB vector store',
+      'Top-5 nearest-neighbour retrieval validated by round-trip queries',
+      'PDF ingestion through PyMuPDF for paper-based queries',
+      'Automatic retry and backoff for 429 and 503 quota errors',
     ],
     outcomes: [
-      'Successfully tested the agent and filtered papers with description and keywords',
+      'Batched embeddings at 100 documents per API call within the service limit',
+      'Responses grounded in retrieved documents rather than unsupported claims',
     ]
 
   },
   'antenna-position-estimator': {
-    title: 'Antenna Position Estimator with Differential Evolution',
-    desc: 'Antenna localization using signal intensity data and differential evolution optimization algorithm.',
+    title: 'Cellular Base-Station Location Estimation with Differential Evolution',
+    desc: 'Differential Evolution for estimating cellular base-station locations from GPS and timing-advance measurements.',
     tech: 'Python, Signal Processing',
     image: AntennaAIImg,
-    github: 'https://github.com/mgvillafane/antenna-position-estimator',
+    github: '',
     coauthors: 'Morris Priester',
-    overview: 'Based on signal intensity from the antenna, the algorithm uses differential evolution to localize the antenna position.',
+    overview: 'A Python implementation of Differential Evolution for estimating cellular base-station locations from GPS and timing-advance measurements, achieving approximately 50 m localization error.',
     features: [
       'Differential Evolution',
       'Vienna Simulation',
@@ -208,7 +210,7 @@ const projectsData = {
     desc: 'A system for monitoring and managing roadside traffic sensors using IoT technologies.',
     tech: 'Python, IoT, MQTT, C++',
     image: TUBerlinImg,
-    github: 'https://github.com/mgvillafane/antenna-position-estimator',
+    github: '',
     coauthors: '',
     overview: 'A system for monitoring and managing roadside traffic sensors using IoT technologies. The system includes a dashboard for real-time monitoring of sensor status, a hardware interface for remote rebooting of sensors, and an automated alert system for sensor failures. ',
     features: [
@@ -322,14 +324,9 @@ export default function ProjectDetail() {
             <section id="model3d" className="detail-section">
               <h2>3D Model</h2>
               <div className="model-viewer-container">
-                <Canvas camera={{ position: [10, 50, 50], fov:100 }}>
-                  <ambientLight intensity={0.5} />
-                  <directionalLight position={[10, 10, 10]} />
-                  <Suspense fallback={null}>
-                    <Model />
+                <Suspense fallback={<p>Loading 3D model...</p>}>
+                    <ModelViewer url={project.download.url} />
                   </Suspense>
-                  <OrbitControls />
-                </Canvas>
               </div>
             </section>
           )}
@@ -337,7 +334,6 @@ export default function ProjectDetail() {
           <section id="overview" className="detail-section">
             <h2>Overview</h2>
             <p>{project.overview}</p>
-            <p>This project represents a significant milestone in my engineering career. The combination of hardware design and software implementation demonstrates my versatility in solving complex problems across multiple domains.</p>
           </section>
 
           
@@ -392,10 +388,4 @@ export default function ProjectDetail() {
       </div>
     </div>
   )
-}
-
-
-function Model() {
-  const { scene } = useGLTF(multistageModelUrl);
-  return <primitive object={scene} scale={1} />;
 }

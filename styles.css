@@ -265,7 +265,8 @@ h2{color:#e8eef5;margin-bottom:16px}
 .projects-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 16px;
+  gap: 20px;
+  align-items: stretch;
 }
 
 @keyframes fadeInProjects {
@@ -311,16 +312,16 @@ h2{color:#e8eef5;margin-bottom:16px}
   font-size: 1.1rem;
   animation: fadeInProjects 0.5s ease-out;
 }
-.project-card{display:flex;flex-direction:column;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.005), transparent);overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;border:1px solid rgba(255,255,255,0.02)}
+.project-card{display:flex;flex-direction:column;min-height:100%;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.005));overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;border:1px solid rgba(255,255,255,0.08)}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(37,99,235,0.08)}
-.project-image-wrapper{width:100%;height:180px;overflow:hidden;background:linear-gradient(135deg, rgba(37,99,235,0.05), rgba(59,130,246,0.02));display:flex;align-items:center;justify-content:center}
-.project-image{width:100%;height:100%;object-fit:contain;transition:transform .4s ease;will-change:transform;padding:8px}
+.project-image-wrapper{width:100%;aspect-ratio:16 / 9;overflow:hidden;background:linear-gradient(135deg, rgba(37,99,235,0.08), rgba(59,130,246,0.02));display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.project-image{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;will-change:transform}
 .project-card:hover .project-image{transform:scale(1.05)}
-.project-content{padding:18px;gap:6px;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}
-.project-content .btn{width:100%;max-width:150px}
-.project-card h3{margin:0 0 6px 0;color:#e8eef5;font-size:1rem}
-.desc{color:var(--muted);flex:1;font-size:.95rem;line-height:1.65;margin:4px 0}
-.tech{font-size:.85rem;line-height:1.6;color:var(--muted);margin-top:4px}
+.project-content{padding:20px;gap:10px;flex:1;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.project-content .btn{width:auto;margin-top:auto;padding-inline:16px}
+.project-card h3{margin:0;color:#e8eef5;font-size:1.05rem;line-height:1.35}
+.desc{color:var(--muted);font-size:.95rem;line-height:1.55;margin:0}
+.tech{font-size:.85rem;line-height:1.55;color:var(--muted);margin:0}
 
 /* Awards Section */
 .awards-grid{display:grid;grid-template-columns:1fr;gap:16px}
@@ -460,7 +461,12 @@ a:hover{color:var(--accent-light)}
 }
 
 .download-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 44px;
+  padding: 8px 16px;
   margin-top: 0;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   color: #050812;

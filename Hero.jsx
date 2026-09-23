@@ -3,7 +3,7 @@ import ChromaBG from './ChromaBG.jsx'
 
 export default function Hero(){
   const [displayedText, setDisplayedText] = useState('')
-  const fullName = 'Marcos Gomez Villafañe'
+  const fullName = 'Marcos Gómez Villafañe'
 
   // Typewriter effect
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Hero(){
       
       <div className="hero-content">
         <h1 className="hero-title">{displayedText}<span className="typewriter-cursor"></span></h1>
-        <p className="hero-subtitle">Electronics Engineer</p>
+        <p className="hero-subtitle">Electrical Engineer and Computer Scientist</p>
         <a className="scroll-hint" href="#about">
           <span>Scroll down</span>
           <span className="scroll-arrow" aria-hidden="true">&#8595;</span>

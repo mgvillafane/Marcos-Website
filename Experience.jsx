@@ -6,29 +6,37 @@ export default function Experience(){
 
   const experiences = [
     {
-      company: 'Techint Group – Tenaris',
-      role: 'Industrial Process Innovation Researcher',
-      dates: 'Jul 2025 – Present',
-      location: 'Buenos Aires, Argentina',
-      logo: 'https://www.tenaris.com/media/z0bal0tu/microsoftteams-image-8.png?v=1db50eb66c4c5f0',
+      company: 'University of California, Berkeley',
+      role: 'Graduate Student Researcher',
+      dates: 'Aug 2026 – Present',
+      location: 'Berkeley, California, USA',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Cal_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original',
       tasks: [
-        'Designed and developed robotic systems for automatic pipe quality testing.',
-        'Implemented an automatic thread alignment algorithm for accurate measurement.',
-        'Developed signal processing algorithms to analyze three types of threads.'
+        'Developing multi-agent reinforcement learning algorithms to coordinate autonomous vehicles in dense driving scenarios.',
+        'Using JAX, PyTorch, and the Waymo Open Motion Dataset to synthesize safety-critical scenarios.'
       ]
     },
     {
-      company: 'FZI Research Center for Information Technology',
-      role: 'Research Assistant / Master Thesis Researcher',
+      company: 'Techint Group – Tenaris',
+      role: 'Industrial Process Innovation Researcher',
+      dates: 'Jul 2025 – Aug 2026',
+      location: 'Buenos Aires, Argentina',
+      logo: 'https://www.tenaris.com/media/z0bal0tu/microsoftteams-image-8.png?v=1db50eb66c4c5f0',
+      tasks: [
+        'Designed signal processing systems for automatic pipe quality testing, achieving micrometer precision, 4% measurement variance, and 25-second measurement cycles.',
+        'Developed robot-to-pipe alignment algorithms that reduced variance by 50% and measurement error by 30%.'
+      ]
+    },
+    {
+      company: 'Forschungszentrum Informatik (FZI)',
+      role: 'Research Assistant & Thesis Researcher',
       dates: 'Apr 2024 – Aug 2024',
       location: 'Karlsruhe, Germany',
       logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxRk62XCWaxs7uN8FlSQgr19SogdI93ICVrg&s',
       tasks: [
-        'Improved generalization of PPO-based deep reinforcement learning algorithm',
-        'Achieved up to 1.3x higher rewards compared to standard PPO',
-        'Reduced robot collisions by over 60% in novel scenarios',
-        'Developed collision avoidance pipeline based on uncertainty estimation',
-        'Co-authored IEEE IROS 2025 paper on safe social navigation with DRL'
+        'Improved the generalization of a PPO-based deep reinforcement learning algorithm, obtaining up to 1.3x higher rewards than classic PPO.',
+        'Prevented over 60% of robot collisions in three novel scenarios with an uncertainty-based collision avoidance pipeline.',
+        'Co-authored and published a peer-reviewed IROS 2025 paper on safe social navigation with deep reinforcement learning.'
       ]
     },
     {
@@ -38,7 +46,7 @@ export default function Experience(){
       location: 'Buenos Aires, Argentina',
       logo: DataEvo,
       tasks: [
-        'Automated data science workflows using Python and optimized dashboards using Shiny'
+        'Built Python data pipelines and interactive R/Shiny analytics dashboards for client reporting.'
       ]
     },
     {

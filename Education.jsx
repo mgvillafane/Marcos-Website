@@ -7,22 +7,24 @@ export default function Education(){
     {
       school: 'University of California, Berkeley (UC Berkeley)',
       degree: 'Master of Engineering in Electrical Engineering and Computer Science',
-      dates: 'Aug 2025 – Present',
+      dates: 'Aug 2026 – May 2027',
       location: 'Berkeley, California, USA',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Cal_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original',
       details: [
-        'Master of Engineering program in EECS'
+        'Specialization in Robotics and Embedded Software',
+        'Relevant courses: Robotics, Machine Learning, Robotic Manipulation & Interaction, Deep Reinforcement Learning',
+        'Leadership: Robotics Affinity Group Leader, organizing site visits and workshops for a 70+ member community'
       ]
     },
     {
       school: 'University of Buenos Aires (UBA)',
-      degree: 'Bachelor Degree in Electronics Engineering',
+      degree: 'Bachelor degree in Electronics Engineering (6-year engineering degree)',
       dates: 'Mar 2019 – Apr 2025',
       location: 'Buenos Aires, Argentina',
       logo: 'https://media.licdn.com/dms/image/v2/C4E0BAQF-QztqGXBokQ/company-logo_200_200/company-logo_200_200/0/1631310205614?e=2147483647&v=beta&t=uxXG_R09K4IQ3F3YVAhjFmHV9PZeD1J_Urr-D2onJc4',
       details: [
-        'GPA: 8.66 / 10',
-        'Award: Outstanding student',
+        'GPA: 8.66 / 10 (US equivalent: 3.7 / 4.0)',
+        'Award: University of Buenos Aires Outstanding Student',
         'Thesis: Development of a Robust Reinforcement Learning-Based Motion Planner for Autonomous Robots in Novel Scenarios',
         'Final grade: 10/10'
       ]

@@ -37,8 +37,8 @@ function HomePage(){
 
   const projectsList = [
     {
-      title: 'Smartlock - Intelligent Lock',
-      desc: 'IoT smart lock with online dashboard for access tracking and remote control.',
+      title: 'Smartlock - An IoT Wi-Fi Doorlock',
+      desc: 'C++ IoT smart lock with RFID, keypad, Wi-Fi connectivity, and a dashboard for real-time access monitoring.',
       tech: 'C++, Github, MQTT',
       image: SmartlockImg,
       categories: ['Electronics', 'Automation', 'Signal Processing']
@@ -60,7 +60,7 @@ function HomePage(){
     {
       title: 'High Frequency Amplifier',
       desc: 'Broadband RF amplifier design optimized for MHz range applications.',
-      tech: 'Kicad, ADS Electronics',
+      tech: 'KiCad, Keysight ADS, RF Electronics',
       image: RFAmpImg,
       categories: ['Electronics']
     },
@@ -74,7 +74,7 @@ function HomePage(){
     {
       title: 'Pendulum Control System',
       desc: 'Control system for pendulum using PID, PI, P and discrete controllers.',
-      tech: 'Matlab, FreeCAD, Arduino IDE',
+      tech: 'MATLAB, FreeCAD, Arduino IDE',
       image: PenduloImg,
       categories: ['Automation', 'Electronics', 'Signal Processing']
     },
@@ -86,8 +86,8 @@ function HomePage(){
       categories: ['Deep Learning']
     },
     {
-      title: 'Antenna Position Estimator with ML',
-      desc: 'Estimation of antenna position using machine learning and signal intensity.',
+      title: 'Cellular Base-Station Location Estimation',
+      desc: 'Differential Evolution for estimating cellular base-station locations from GPS and timing-advance measurements.',
       tech: 'Python',
       image: WorkshopMOBCOM,
       categories: ['Deep Learning', 'Signal Processing']
@@ -115,15 +115,14 @@ function HomePage(){
       <main className="container">
         <section id="about" className="card fade-section" ref={aboutRef}>
           <div className="about-content">
-            <img src={ProfilePic} alt="Marcos Gomez Villafa&#241;e" className="about-image" width="144" height="144" loading="lazy" decoding="async" />
+            <img src={ProfilePic} alt="Marcos Gómez Villafañe" className="about-image" width="144" height="144" loading="lazy" decoding="async" />
             <div className="about-heading">
               <p className="eyebrow">A little about me</p>
-              <h2>Engineering ideas into reality.</h2>
               <p className="about-focus">Robotics &middot; AI &middot; Electronics</p>
             </div>
             <div className="about-text">
-              <p>I'm Marcos, an Electronics Engineer working at the intersection of robotics, reinforcement learning, and hardware design.</p>
-              <p>At Techint Group (Tenaris), I develop robotic systems for industrial applications. My work spans research and industry, from IoT smart locks to motion planning for autonomous robots.</p>
+              <p>I'm Marcos, an Electrical Engineer and Computer Scientist specializing in robotics, embedded software, and machine learning.</p>
+              <p>My work spans multi-agent reinforcement learning, autonomous vehicles, industrial robotics, signal processing, and connected embedded systems.</p>
               <a className="about-project-link" href="#projects">Explore my projects <span aria-hidden="true">&#8599;</span></a>
             </div>
           </div>
@@ -202,7 +201,7 @@ function HomePage(){
             <div className="award-item">
               <h3>IEEE IROS 2025 Publication</h3>
               <p className="award-org">Intelligent Robots and Systems</p>
-              <p className="award-desc">Co-authored the paper"Safe Social Navigation with Deep Reinforcement Learning" based on research at FZI. The conference was held at Guangzhou, China.</p>
+              <p className="award-desc">Co-authored the paper "Disentangling Uncertainty for Safe Social Navigation using Deep Reinforcement Learning" based on research at FZI. The paper was presented at IROS 2025 in Hangzhou, China.</p>
             </div>
           </div>
         </section>
@@ -216,7 +215,7 @@ function HomePage(){
       </main>
 
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Marcos Gomez Villafañe. Electronics Engineer. Made with React.</p>
+        <p>© {new Date().getFullYear()} Marcos Gómez Villafañe. Robotics and Machine Learning Engineer. Made with React.</p>
       </footer>
     </div>
   )
@@ -224,7 +223,7 @@ function HomePage(){
 
 export default function App(){
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/project/:projectId" element={
