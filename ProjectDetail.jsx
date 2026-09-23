@@ -148,7 +148,7 @@ const projectsData = {
     desc: 'Control system for stabilizing pendulum using 3 types of control algorithms.',
     tech: 'Control Theory, IMU, MATLAB, Arduino',
     image: PenduloImg,
-    github: 'https://github.com/mgvillafane/TP3_Labo_control',
+    github: 'https://github.com/mgvillafane/Pendulum_controller',
     coauthors: 'Alexis Romero, Manuel Rodriguez',
     overview: 'A control system for the pendulum problem, implementing both classical P, PI and PID control as well as discrete control algorithms. The system includes real-time hardware control, sensor feedback processing, and visualization of system dynamics with data from an IMU.',
     features: [
