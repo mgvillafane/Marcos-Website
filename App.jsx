@@ -18,6 +18,7 @@ import ProfilePic from './src/public/models/profile-pic.jpeg'
 import TUBerlin from './src/public/models/TUBerlin.png'
 import PaperSearch from './src/public/models/PaperSearch.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
+import nudgeurway from './src/data/nudgeurway.js'
 
 const ProjectDetail = React.lazy(() => import('./ProjectDetail.jsx'))
 
@@ -36,6 +37,7 @@ function HomePage(){
   }, [])
 
   const projectsList = [
+    nudgeurway,
     {
       title: 'Smartlock - An IoT Wi-Fi Doorlock',
       desc: 'C++ IoT smart lock with RFID, keypad, Wi-Fi connectivity, and a dashboard for real-time access monitoring.',
@@ -156,6 +158,8 @@ function HomePage(){
                 desc={project.desc}
                 tech={project.tech}
                 image={project.image}
+                imageAlt={project.imageAlt}
+                imageFit={project.imageFit}
                 categories={project.categories}
               />
             ))}

@@ -10,10 +10,13 @@ import PaperSearchImg from './src/public/models/PaperSearch.png'
 import TUBerlinImg from './src/public/models/TUBerlin.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
 import multistageDownloadUrl from './src/public/models/tp-c2.stl?url'
+import nudgeurway from './src/data/nudgeurway.js'
 
 const ModelViewer = React.lazy(() => import('./ModelViewer.jsx'))
 
 const projectsData = {
+  nudgeurway,
+  waymind: nudgeurway,
   'smartlock-intelligent-lock': {
     title: 'Smartlock - An IoT Wi-Fi Doorlock',
     desc: 'C++ IoT smart lock with RFID, keypad, Wi-Fi connectivity, and a dashboard for real-time access monitoring.',
@@ -238,12 +241,18 @@ export default function ProjectDetail() {
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&h=300&fit=crop',
   }
 
+  const youtubeUrl = project.youtube ? new URL(project.youtube) : null
+  const youtubeVideoId = youtubeUrl && (
+    youtubeUrl.searchParams.get('v') || youtubeUrl.pathname.split('/').filter(Boolean).at(-1)
+  )
+
   const sections = [
     { id: 'overview', label: 'Overview' },
+    ...(project.prototypeImage ? [{ id: 'prototype', label: 'Helmet Prototype' }] : []),
     { id: 'features', label: 'Features' },
     { id: 'technology', label: 'Technology' },
     { id: 'outcomes', label: 'Outcomes' },
-    
+    ...(project.youtube ? [{ id: 'video', label: 'Demo Video' }] : []),
   ]
 
   const handleNavClick = (sectionId) => {
@@ -256,7 +265,7 @@ export default function ProjectDetail() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ['overview', 'features', 'technology', 'outcomes']
+      const sectionIds = sections.map(section => section.id)
       for (let id of sectionIds) {
         const element = document.getElementById(id)
         if (element) {
@@ -271,23 +280,41 @@ export default function ProjectDetail() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [projectId])
 
   return (
     <div className="project-detail">
       <div className="project-back"><Link className="btn" to="/#projects">&#8592; All projects</Link></div>
       {/* Hero Section with Image */}
       <div className="project-hero">
-        <img src={project.image} alt={project.title} className="hero-image" />
+        <img src={project.image} alt={project.imageAlt || project.title} className="hero-image" />
         <div className="hero-overlay">
           <h1>{project.title}</h1>
           <p className="hero-subtitle">{project.desc}</p>
           <p className="hero-tech"><strong>Technologies:</strong> {project.tech}</p>
           {project.coauthors && <p className="hero-coauthors"><strong>Coauthors:</strong> {project.coauthors}</p>}
+          {project.team && (
+            <p className="hero-team">
+              <strong>Team:</strong>{' '}
+              {project.team.map((member, index) => (
+                <React.Fragment key={member.name}>
+                  {index > 0 && ', '}
+                  {member.url ? (
+                    <a href={member.url} target="_blank" rel="noopener noreferrer">{member.name}</a>
+                  ) : member.name}
+                </React.Fragment>
+              ))}
+            </p>
+          )}
           <div className="hero-actions">
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn primary">
                 View on GitHub
+              </a>
+            )}
+            {project.devpost && (
+              <a href={project.devpost} target="_blank" rel="noopener noreferrer" className="btn">
+                View on Devpost
               </a>
             )}
             {project.download && (
@@ -336,6 +363,15 @@ export default function ProjectDetail() {
             <p>{project.overview}</p>
           </section>
 
+          {project.prototypeImage && (
+            <section id="prototype" className="detail-section">
+              <h2>Helmet Prototype</h2>
+              <figure className="prototype-photo">
+                <img src={project.prototypeImage} alt={project.prototypeImageAlt} loading="lazy" decoding="async" width="430" height="573" />
+                <figcaption>The {project.title} prototype built at Cal Hacks 13.0.</figcaption>
+              </figure>
+            </section>
+          )}
           
           {/* Features Section */}
           <section id="features" className="detail-section">
@@ -365,21 +401,22 @@ export default function ProjectDetail() {
           </section>
 
           
-          {/* YouTube Video Section - Only for Smartlock */}
+          {/* YouTube demo */}
           {project.youtube && (
             <section id="video" className="detail-section">
               <h2>Demo Video</h2>
-              <div className="video-container">
+              <div className={`video-container${youtubeUrl.pathname.startsWith('/shorts/') ? ' video-short' : ''}`}>
                 <iframe
                   width="100%"
                   loading="lazy"
-                  src={`https://www.youtube.com/embed/${project.youtube.split('v=')[1]}`}
-                  title="Project Demo"
+                  src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                  title={`${project.title} demo`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
+              <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="btn">Watch on YouTube</a>
             </section>
           )}
 

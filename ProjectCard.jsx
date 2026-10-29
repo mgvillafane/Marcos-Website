@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const projectSlugs = {
+  NudgeURway: 'nudgeurway',
   'Smartlock - An IoT Wi-Fi Doorlock': 'smartlock-intelligent-lock',
   'ASTAR - Orientation Estimation of Nanosatellites': 'astar-orientation-estimation',
   'Multistage Voltage Regulator': 'multistage-voltage-regulator',
@@ -13,13 +14,13 @@ const projectSlugs = {
   'IoT Roadside Reboot System': 'IoT-Traffic-Sensor-Reboot',
 }
 
-export default function ProjectCard({title, desc, tech, image, categories}){
+export default function ProjectCard({title, desc, tech, image, imageAlt, imageFit, categories}){
   const projectSlug = projectSlugs[title] || title.toLowerCase().replace(/\s+/g, '-')
   
   return (
     <article className="project-card">
       <div className="project-image-wrapper">
-        <img src={image} alt={title} className="project-image" loading="lazy" decoding="async" />
+        <img src={image} alt={imageAlt || title} className={`project-image${imageFit === 'contain' ? ' project-image-contain' : ''}`} loading="lazy" decoding="async" />
       </div>
       <div className="project-content">
         <h3>{title}</h3>
