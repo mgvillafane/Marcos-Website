@@ -14,8 +14,8 @@ const projectSlugs = {
   'IoT Roadside Reboot System': 'IoT-Traffic-Sensor-Reboot',
 }
 
-export default function ProjectCard({title, desc, tech, image, imageAlt, imageFit, categories}){
-  const projectSlug = projectSlugs[title] || title.toLowerCase().replace(/\s+/g, '-')
+export default function ProjectCard({slug, title, status, desc, tech, image, imageAlt, imageFit, categories}){
+  const projectSlug = slug || projectSlugs[title] || title.toLowerCase().replace(/\s+/g, '-')
   
   return (
     <article className="project-card">
@@ -23,6 +23,7 @@ export default function ProjectCard({title, desc, tech, image, imageAlt, imageFi
         <img src={image} alt={imageAlt || title} className={`project-image${imageFit === 'contain' ? ' project-image-contain' : ''}`} loading="lazy" decoding="async" />
       </div>
       <div className="project-content">
+        {status && <span className="project-status">{status}</span>}
         <h3>{title}</h3>
         <p className="desc">{desc}</p>
         <p className="tech"><strong>Technologies:</strong> {tech}</p>

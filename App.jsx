@@ -19,6 +19,7 @@ import TUBerlin from './src/public/models/TUBerlin.png'
 import PaperSearch from './src/public/models/PaperSearch.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
 import nudgeurway from './src/data/nudgeurway.js'
+import wasteClassification from './src/data/wasteClassification.js'
 
 const ProjectDetail = React.lazy(() => import('./ProjectDetail.jsx'))
 
@@ -37,6 +38,7 @@ function HomePage(){
   }, [])
 
   const projectsList = [
+    wasteClassification,
     nudgeurway,
     {
       title: 'Smartlock - An IoT Wi-Fi Doorlock',
@@ -154,7 +156,9 @@ function HomePage(){
             {filteredProjects.map((project) => (
               <ProjectCard 
                 key={project.title}
+                slug={project.slug}
                 title={project.title}
+                status={project.status}
                 desc={project.desc}
                 tech={project.tech}
                 image={project.image}

@@ -324,6 +324,9 @@ h2{color:#e8eef5;margin-bottom:16px}
 .project-content{padding:20px;gap:10px;flex:1;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
 .project-content .btn{width:auto;margin-top:auto;padding-inline:16px}
 .project-card h3{margin:0;color:#e8eef5;font-size:1.05rem;line-height:1.35}
+.project-status{display:inline-flex;align-items:center;gap:8px;width:fit-content;padding:5px 12px;border:1px solid rgba(251,191,36,.35);border-radius:999px;background:rgba(251,191,36,.08);color:#fcd676;font-size:.75rem;font-weight:600;line-height:1.5}
+.project-status::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+.hero-overlay .project-status{margin-bottom:16px}
 .desc{color:var(--muted);font-size:.95rem;line-height:1.55;margin:0}
 .tech{font-size:.85rem;line-height:1.55;color:var(--muted);margin:0}
 
@@ -631,6 +634,18 @@ a:hover{color:var(--accent-light)}
     opacity: 1;
   }
 }
+
+.dataset-table-wrapper{overflow-x:auto;border:1px solid rgba(101,198,244,.2);border-radius:12px}
+.dataset-table{width:100%;border-collapse:collapse;text-align:left;font-size:.9rem;line-height:1.65}
+.dataset-table caption{text-align:left;padding:16px;color:var(--muted);caption-side:bottom}
+.dataset-table th,.dataset-table td{padding:14px 16px;vertical-align:top;border-bottom:1px solid rgba(101,198,244,.12)}
+.dataset-table th{color:#e8eef5;font-weight:600}
+.dataset-table thead{background:rgba(101,198,244,.06)}
+.dataset-table td{color:var(--muted)}
+.project-timeline{margin:0}
+.project-timeline > div{padding:16px 0;border-bottom:1px solid rgba(101,198,244,.12)}
+.project-timeline dt{color:var(--accent);font-weight:600}
+.project-timeline dd{margin:6px 0 0;color:var(--muted);line-height:1.8}
 
 /* Responsive layout and keyboard/touch controls */
 body{line-height:1.6}

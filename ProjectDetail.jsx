@@ -11,10 +11,12 @@ import TUBerlinImg from './src/public/models/TUBerlin.png'
 import AstarFinished from './src/public/models/Astar_finished.jpeg'
 import multistageDownloadUrl from './src/public/models/tp-c2.stl?url'
 import nudgeurway from './src/data/nudgeurway.js'
+import wasteClassification from './src/data/wasteClassification.js'
 
 const ModelViewer = React.lazy(() => import('./ModelViewer.jsx'))
 
 const projectsData = {
+  [wasteClassification.slug]: wasteClassification,
   nudgeurway,
   waymind: nudgeurway,
   'smartlock-intelligent-lock': {
@@ -249,9 +251,11 @@ export default function ProjectDetail() {
   const sections = [
     { id: 'overview', label: 'Overview' },
     ...(project.prototypeImage ? [{ id: 'prototype', label: 'Helmet Prototype' }] : []),
-    { id: 'features', label: 'Features' },
+    { id: 'features', label: project.featuresNavLabel || 'Features' },
+    ...(project.datasets ? [{ id: 'datasets', label: 'Datasets' }] : []),
     { id: 'technology', label: 'Technology' },
-    { id: 'outcomes', label: 'Outcomes' },
+    { id: 'outcomes', label: project.outcomesNavLabel || 'Outcomes' },
+    ...(project.timeline ? [{ id: 'timeline', label: 'Timeline' }] : []),
     ...(project.youtube ? [{ id: 'video', label: 'Demo Video' }] : []),
   ]
 
@@ -289,6 +293,7 @@ export default function ProjectDetail() {
       <div className="project-hero">
         <img src={project.image} alt={project.imageAlt || project.title} className="hero-image" />
         <div className="hero-overlay">
+          {project.status && <span className="project-status">{project.status}</span>}
           <h1>{project.title}</h1>
           <p className="hero-subtitle">{project.desc}</p>
           <p className="hero-tech"><strong>Technologies:</strong> {project.tech}</p>
@@ -301,6 +306,8 @@ export default function ProjectDetail() {
                   {index > 0 && ', '}
                   {member.url ? (
                     <a href={member.url} target="_blank" rel="noopener noreferrer">{member.name}</a>
+                  ) : member.email ? (
+                    <a href={`mailto:${member.email}`}>{member.name}</a>
                   ) : member.name}
                 </React.Fragment>
               ))}
@@ -375,7 +382,7 @@ export default function ProjectDetail() {
           
           {/* Features Section */}
           <section id="features" className="detail-section">
-            <h2>Key Features</h2>
+            <h2>{project.featuresTitle || 'Key Features'}</h2>
             <ul>
               {project.features && project.features.map((feature, idx) => (
                 <li key={idx}>{feature}</li>
@@ -383,22 +390,62 @@ export default function ProjectDetail() {
             </ul>
           </section>
 
+          {project.datasets && (
+            <section id="datasets" className="detail-section">
+              <h2>Research Datasets</h2>
+              <div className="dataset-table-wrapper" role="region" aria-label="Research datasets" tabIndex={0}>
+                <table className="dataset-table">
+                  <caption>Datasets in the research plan; the current repository implements the TACO detection pipeline.</caption>
+                  <thead>
+                    <tr><th scope="col">Dataset</th><th scope="col">Task</th><th scope="col">Research use</th></tr>
+                  </thead>
+                  <tbody>
+                    {project.datasets.map(dataset => (
+                      <tr key={dataset.name}>
+                        <th scope="row">{dataset.name}</th>
+                        <td>{dataset.task}</td>
+                        <td>{dataset.purpose}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {project.datasetNote && <p>{project.datasetNote}</p>}
+            </section>
+          )}
+
           {/* Technology Section */}
           <section id="technology" className="detail-section">
             <h2>Technology Stack</h2>
             <p><strong>Technologies Used:</strong> {project.tech}</p>
-            <p>The project leverages carefully selected technologies and frameworks to ensure scalability, performance, and maintainability. Each technology was chosen to address specific requirements and optimize the solution for real-world deployment.</p>
+            <p>{project.technologyOverview || 'The project leverages carefully selected technologies and frameworks to ensure scalability, performance, and maintainability. Each technology was chosen to address specific requirements and optimize the solution for real-world deployment.'}</p>
           </section>
 
           {/* Outcomes Section */}
           <section id="outcomes" className="detail-section">
-            <h2>Results & Outcomes</h2>
+            <h2>{project.outcomesTitle || 'Results & Outcomes'}</h2>
+            {project.outcomesIntro && <p>{project.outcomesIntro}</p>}
             <ul>
               {project.outcomes && project.outcomes.map((outcome, idx) => (
                 <li key={idx}>{outcome}</li>
               ))}
             </ul>
           </section>
+
+          {project.timeline && (
+            <section id="timeline" className="detail-section">
+              <h2>Tentative Timeline</h2>
+              <p>Proposed milestones, subject to experiment results and team availability.</p>
+              <dl className="project-timeline">
+                {project.timeline.map(milestone => (
+                  <div key={milestone.period}>
+                    <dt>{milestone.period}</dt>
+                    <dd>{milestone.task}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
 
           
           {/* YouTube demo */}
